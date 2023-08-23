@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>临渊羡鱼 | 临渊羡鱼</title><meta name="description" content="一、挖矿病毒的套路: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;164557943 DTStealer(又名“永恒之蓝下载器木马”)  病毒运行后，除了执行挖矿行为，占用终端资源以外，还会窃取终端信息并回传服务器，并利用钓鱼邮件、SMBexec、WMIexec、常见漏洞等方式，在内、外网肆意传播。 该病毒内网传播方式较多，在部署火绒查杀后，还有被其他已经中毒终端攻击攻击的可能，出现"><meta name="author" content="BoneInk"><meta name="copyright" content="BoneInk"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/R.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="临渊羡鱼"><meta name="twitter:description" content="一、挖矿病毒的套路: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;164557943 DTStealer(又名“永恒之蓝下载器木马”)  病毒运行后，除了执行挖矿行为，占用终端资源以外，还会窃取终端信息并回传服务器，并利用钓鱼邮件、SMBexec、WMIexec、常见漏洞等方式，在内、外网肆意传播。 该病毒内网传播方式较多，在部署火绒查杀后，还有被其他已经中毒终端攻击攻击的可能，出现"><meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="og:type" content="article"><meta property="og:title" content="临渊羡鱼"><meta property="og:url" content="https://boneink.github.io/2023/08/23/%E6%8C%96%E7%9F%BF%E6%A0%B7%E6%9C%AC%E7%89%B9%E5%BE%81%E6%80%BB%E7%BB%93/"><meta property="og:site_name" content="临渊羡鱼"><meta property="og:description" content="一、挖矿病毒的套路: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;164557943 DTStealer(又名“永恒之蓝下载器木马”)  病毒运行后，除了执行挖矿行为，占用终端资源以外，还会窃取终端信息并回传服务器，并利用钓鱼邮件、SMBexec、WMIexec、常见漏洞等方式，在内、外网肆意传播。 该病毒内网传播方式较多，在部署火绒查杀后，还有被其他已经中毒终端攻击攻击的可能，出现"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2023-08-23T06:37:05.156Z"><meta property="article:modified_time" content="2023-08-23T06:37:05.156Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://boneink.github.io/2023/08/23/%E6%8C%96%E7%9F%BF%E6%A0%B7%E6%9C%AC%E7%89%B9%E5%BE%81%E6%80%BB%E7%BB%93/"><link rel="next" title="WhiteRabbitTracke项目运行和问题" href="https://boneink.github.io/2022/08/23/WhiteRabbitTracker%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E5%92%8C%E9%97%AE%E9%A2%98/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="临渊羡鱼" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="http://q1.qlogo.cn/g?b=qq&amp;nk=1214424001&amp;s=5" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">25</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">29</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%8C%96%E7%9F%BF%E7%97%85%E6%AF%92%E7%9A%84%E5%A5%97%E8%B7%AF-https-zhuanlan-zhihu-com-p-164557943"><span class="toc-number">1.</span> <span class="toc-text">一、挖矿病毒的套路: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;164557943</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Avast-Q4-x2F-21-Threat-report%EF%BC%9Ahttps-decoded-avast-io-threatresearch-avast-q4-21-threat-report"><span class="toc-number">2.</span> <span class="toc-text">二、Avast Q4&#x2F;21 Threat report：https:&#x2F;&#x2F;decoded.avast.io&#x2F;threatresearch&#x2F;avast-q4-21-threat-report&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E4%BA%8ECoinHelper%EF%BC%88https-decoded-avast-io-janrubin-toss-a-coin-to-your-helper-%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">三、关于CoinHelper（https:&#x2F;&#x2F;decoded.avast.io&#x2F;janrubin&#x2F;toss-a-coin-to-your-helper&#x2F;）:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81DirtyMoe-Introduction-and-General-Overview-of-Modularized-Malware%EF%BC%9Ahttps-decoded-avast-io-martinchlumecky-dirtymoe-1"><span class="toc-number">4.</span> <span class="toc-text">四、DirtyMoe: Introduction and General Overview of Modularized Malware：https:&#x2F;&#x2F;decoded.avast.io&#x2F;martinchlumecky&#x2F;dirtymoe-1&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81Crackonosh-A-New-Malware-Distributed-in-Cracked-Software%EF%BC%9Ahttps-decoded-avast-io-danielbenes-crackonosh-a-new-malware-distributed-in-cracked-software"><span class="toc-number">5.</span> <span class="toc-text">五、Crackonosh: A New Malware Distributed in Cracked Software：https:&#x2F;&#x2F;decoded.avast.io&#x2F;danielbenes&#x2F;crackonosh-a-new-malware-distributed-in-cracked-software&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81HackBoss-A-cryptocurrency-stealing-malware-distributed-through-Telegram%EF%BC%9Ahttps-decoded-avast-io-romanalinkeova-hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram"><span class="toc-number">6.</span> <span class="toc-text">六、HackBoss: A cryptocurrency-stealing malware distributed through Telegram：https:&#x2F;&#x2F;decoded.avast.io&#x2F;romanalinkeova&#x2F;hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81SkidMap%E7%97%85%E6%AF%92%E5%88%A9%E7%94%A8Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%B4%9E%E6%94%BB%E5%87%BB%EF%BC%8C%E6%95%B0%E5%8D%83%E5%8F%B0%E4%BA%91%E4%B8%BB%E6%9C%BA%E6%B2%A6%E4%B8%BA%E7%9F%BF%E6%9C%BA%EF%BC%88Linux%EF%BC%89%EF%BC%9Ahttps-mp-weixin-qq-com-s-biz-MzI5ODk3OTM1Ng-amp-mid-2247498404-amp-idx-2-amp-sn-bb356408fb8abc6e8d5a3411a42daa7a-amp-scene-19-wechat-redirect"><span class="toc-number">7.</span> <span class="toc-text">七、SkidMap病毒利用Redis未授权访问漏洞攻击，数千台云主机沦为矿机（Linux）：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?__biz&#x3D;MzI5ODk3OTM1Ng&#x3D;&#x3D;&amp;mid&#x3D;2247498404&amp;idx&#x3D;2&amp;sn&#x3D;bb356408fb8abc6e8d5a3411a42daa7a&amp;scene&#x3D;19#wechat_redirect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81Sysrv-hello%E5%83%B5%E5%B0%B8%E7%BD%91%E7%BB%9C%E9%9B%86%E6%9C%A8%E9%A9%AC%E3%80%81%E5%90%8E%E9%97%A8%E3%80%81%E8%A0%95%E8%99%AB%E4%BA%8E%E4%B8%80%E8%BA%AB%EF%BC%8C%E6%94%BB%E5%87%BBLinux%E3%80%81Windows%E4%B8%BB%E6%9C%BA%E6%8C%96%E7%9F%BF%EF%BC%9Ahttps-mp-weixin-qq-com-s-biz-MzI5ODk3OTM1Ng-amp-mid-2247497474-amp-idx-1-amp-sn-87eb580380ee3ff5efd389da419f82c9-amp-scene-19-wechat-redirect"><span class="toc-number">8.</span> <span class="toc-text">八、Sysrv-hello僵尸网络集木马、后门、蠕虫于一身，攻击Linux、Windows主机挖矿：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?__biz&#x3D;MzI5ODk3OTM1Ng&#x3D;&#x3D;&amp;mid&#x3D;2247497474&amp;idx&#x3D;1&amp;sn&#x3D;87eb580380ee3ff5efd389da419f82c9&amp;scene&#x3D;19#wechat_redirect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%9D%E3%80%81Putting-an-end-to-Retadup-A-malicious-worm-that-infected-hundreds-of-thousands%EF%BC%9Ahttps-decoded-avast-io-janvojtesek-putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands-%EF%BC%88%E6%8D%AE%E6%96%87%E7%AB%A0%E4%BB%8B%E7%BB%8D%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B7%B2%E8%A2%AB%E6%B8%85%E6%9F%A5%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">九、Putting an end to Retadup: A malicious worm that infected hundreds of thousands：https:&#x2F;&#x2F;decoded.avast.io&#x2F;janvojtesek&#x2F;putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands&#x2F;（据文章介绍，服务器已被清查）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E3%80%81F-Scrack-mimikatz-%E2%80%93-A-bundle-of-tools%EF%BC%9Ahttps-decoded-avast-io-ondrejmokos-f-scrack-mimikatz-a-bundle-of-tools"><span class="toc-number">10.</span> <span class="toc-text">十、F-Scrack-mimikatz – A bundle of tools：https:&#x2F;&#x2F;decoded.avast.io&#x2F;ondrejmokos&#x2F;f-scrack-mimikatz-a-bundle-of-tools&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81Clipsa-%E2%80%93-Multipurpose-password-stealer%EF%BC%9Ahttps-decoded-avast-io-janrubin-clipsa-multipurpose-password-stealer-%EF%BC%88%E5%86%85%E5%AE%B9%E8%BF%87%E9%95%BF%EF%BC%8C%E6%9A%82%E6%97%B6%E6%94%BE%E4%B8%80%E6%94%BE%EF%BC%89"><span class="toc-number">11.</span> <span class="toc-text">十一、Clipsa – Multipurpose password stealer：https:&#x2F;&#x2F;decoded.avast.io&#x2F;janrubin&#x2F;clipsa-multipurpose-password-stealer&#x2F;（内容过长，暂时放一放）</span></a></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><div class="post-bg" id="nav" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">临渊羡鱼</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">无题</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2023-08-23 14:37:05"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2023-08-23</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2023-08-23 14:37:05"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2023-08-23</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h3 id="一、挖矿病毒的套路-https-zhuanlan-zhihu-com-p-164557943"><a href="#一、挖矿病毒的套路-https-zhuanlan-zhihu-com-p-164557943" class="headerlink" title="一、挖矿病毒的套路: https://zhuanlan.zhihu.com/p/164557943"></a>一、挖矿病毒的套路: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/164557943">https://zhuanlan.zhihu.com/p/164557943</a></h3><ol>
+<li><p>DTStealer(又名“永恒之蓝下载器木马”)</p>
+<ul>
+<li><p>病毒运行后，除了执行挖矿行为，占用终端资源以外，还会窃取终端信息并回传服务器，并利用钓鱼邮件、SMBexec、WMIexec、常见漏洞等方式，在内、外网肆意传播。</p>
+<p>该病毒内网传播方式较多，在部署火绒查杀后，还有被其他已经中毒终端攻击攻击的可能，出现火绒“文件实时监控”的查杀记录。</p>
+</li>
+<li><p>感染症状<br>如您的终端出现以下症状，极有可能感染了此病毒。<br>（1）出现以下名称的任务计划:<br>l Drivers<br>l WebServers<br>l DnsScan<br>l Bluetooths<br>l Credentials<br>l Rtsa·<br>l 00-00-00-00-00-00或??-??-??-??-??-??(MAC地址)<br>l Bluetea<br>l Blackball<br>（2）以下位置可能会生成的病毒文件:<br>l C:\Windows\temp\svchost.exe<br>l %AppData%\Microsoft\cred.ps1<br>l %AppData%\flashplayer.tmp<br>l %AppData%\Microsoft\Windows\StartMenu\Programs\Startup\FlashPlayer.lnk<br>（3）U盘内出现以下文件：<br>l blue3.bin<br>l blue6.bin<br>l (D-K)blue3.lnk<br>l (D-K)blue6.lnk<br>（4）火绒出现”隐藏执行PowerShell”、“利用PowerShell执行可疑脚本”等系统加固拦截<br><img src="https://pic2.zhimg.com/v2-8ac149f62555c15478d4565a9863bc75_b.jpg" alt="image"><br>（5)可能会出现的网址访问拦截:<br>l <a target="_blank" rel="noopener" href="http://beahh.com/">http://beahh.com</a><br>l <a target="_blank" rel="noopener" href="http://ackng.com/">http://ackng.com</a><br>l <a target="_blank" rel="noopener" href="http://zer2.com/">http://zer2.com</a></p>
+</li>
+</ul>
+</li>
+<li><p>WannaMine</p>
+<ul>
+<li>该挖矿病毒于2017年底被发现，也是企业内较为常见的挖矿病毒、病毒运行后会扫描企业网络内是否启用了445端口的终端，并通过”永恒之蓝”漏洞在内网横向传播，感染更多终端进行挖矿。</li>
+<li>感染症状<br>如果火绒“文件实时监控”拦截查杀以下目录内的“永恒之蓝”传播组件，则有可能感染了此病毒。<br>l C:\Windows\SpeechsTracing<br>l C:\Windows\NetworkDistribution<br>火绒”文件实时监控”查杀此挖矿程序：<br>l C:\Windows\SysWOW64\dllhostex.exe</li>
+</ul>
+</li>
+<li><p>隐匿者(MyKings)</p>
+<ul>
+<li><p>隐匿者(MyKings)是由多个子僵尸网络构成的多重僵尸网络，除挖矿外，该僵尸网络还包含DDoS、Proxy、RAT等恶意功能。自2017年以来，该僵尸网络至今处于持续更新、传播的状态。</p>
+<p>该病毒会感染MBR，在系统引导时进行加载，加载时机多早于正常的软件启动，成功加载后除了执行恶意行为外，还会对自身进行保护。</p>
+</li>
+<li><p>感染症状</p>
+<p>终端被感染后，会出现以下特征：</p>
+<p>（1）安全软件部署后，无法正常运行</p>
+<p>l Sql Server日志内，出现大量”sa”账户登陆失败日志。</p>
+<p>l Sql Server的作业内，出现异常定时作业。</p>
+<p>（2）出现以下任务计划</p>
+<p>l My</p>
+<p>l Mysa</p>
+<p>l ok</p>
+<p>（3）出现以下文件：</p>
+<p>l C:\Windows\debug\lsmo.exe</p>
+<p>l C:\Windows\debug\lsmos.exe</p>
+<p>l C:\Windows\debug\ok.dat</p>
+<p>l C:\Windows\System32\ok.exe</p>
+<p>l C:\Windows\temp\conhost.exe</p>
+<p>l C:\Windows\System\msinfo.exe</p>
+</li>
+</ul>
+</li>
+<li><p>匿影挖矿</p>
+<ul>
+<li><p>匿影挖矿于2019年2月被发现，该病毒会利用大量网络上的公共资源(例如免费图床)存放病毒模块。在企业内，会利用”永恒之蓝”在内网横向传播，感染更多终端进行挖矿。病毒运行后，会利用驱动阻碍安全软件正常运行，并对自身进行保护。</p>
+<p>该挖矿会利用驱动妨碍安全软件正常运行。</p>
+</li>
+<li><p>终端被感染后，出现以下文件：</p>
+<p>l C:\Windows\Temp\retboolDriver.sys</p>
+<p>l C:\Windows\Temp\FlrefoxDriver.sys</p>
+<p>l C:\ProgramData\dll*</p>
+<p>l C:\ProgramData\kuaizipUpdateChecker.dll</p>
+<p>l C:\ProgramData\MS_17_010_Scan.exe</p>
+<p>l C:\ProgramData\Microsoft\Chromme.exe</p>
+<p>l C:\ProgramData\Flrefox.exe</p>
+</li>
+</ul>
+</li>
+<li><p>紫狐</p>
+<ul>
+<li><p>紫狐病毒最初发现于2018年，多年来一直保持活跃，除了挖矿外，该病毒还有流量暗刷、DDoS、盗号、恶意推广等恶意行为。并会通过软件捆绑、Ghost镜像、永恒之蓝、Sql暴破、服务漏洞等方式进行传播。</p>
+<p>该病毒会通过驱动对自身进行保护。</p>
+</li>
+<li><p>感染症状</p>
+<p>被感染终端，会出现以下文件：</p>
+<p>l C:\Windows\System32\Ms********App.dll(*为任意字符)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="二、Avast-Q4-x2F-21-Threat-report：https-decoded-avast-io-threatresearch-avast-q4-21-threat-report"><a href="#二、Avast-Q4-x2F-21-Threat-report：https-decoded-avast-io-threatresearch-avast-q4-21-threat-report" class="headerlink" title="二、Avast Q4&#x2F;21 Threat report：https://decoded.avast.io/threatresearch/avast-q4-21-threat-report/"></a>二、Avast Q4&#x2F;21 Threat report：<a target="_blank" rel="noopener" href="https://decoded.avast.io/threatresearch/avast-q4-21-threat-report/">https://decoded.avast.io/threatresearch/avast-q4-21-threat-report/</a></h3><p>CoinHelper是流行的硬币矿工之一，在 21 年第四季度仍然非常活跃，主要<code>Russia</code>针对<code>Ukraine</code>. 当恶意软件在受害者的系统上执行时，<code>CoinHelper</code>通过网络下载臭名昭著的 XMRig 矿工<code>Tor</code>并开始挖矿。除了硬币挖掘，CoinHelper 还收集有关受害者的各种信息，以识别他们的地理位置、他们安装的 AV 解决方案以及他们正在使用的硬件。</p>
+<p>该恶意软件以捆绑的形式与许多流行的应用程序、破解软件（例如<code>MS Office</code>，游戏和游戏作弊程序（例如<code>Minecraft</code>and <code>Cyberpunk 2077</code>），甚至是干净的安装程序（例如<code>Google Chrome</code>or <code>AV products</code>）以及隐藏在 中<code>Windows 11 ISO image</code>，等等）一起传播。通过种子下载捆绑的应用程序也支持传播范围，进一步滥用了下载软件的非官方方式。</p>
+<p>尽管我们观察到多种加密货币（包括以太坊或比特币）被配置为开采，但有一种特殊类型脱颖而出—— <code>Monero</code>. 尽管门罗币被设计为匿名的，但由于地址使用错误和矿池运作机制，我们能够更深入地了解恶意软件作者的门罗币挖矿操作，并发现总的货币收益CoinHelper<code>339,694.86 USD</code>截至 2021 年 11 月 29 日。</p>
+<h3 id="三、关于CoinHelper（https-decoded-avast-io-janrubin-toss-a-coin-to-your-helper-）"><a href="#三、关于CoinHelper（https-decoded-avast-io-janrubin-toss-a-coin-to-your-helper-）" class="headerlink" title="三、关于CoinHelper（https://decoded.avast.io/janrubin/toss-a-coin-to-your-helper/）:"></a>三、关于CoinHelper（<a target="_blank" rel="noopener" href="https://decoded.avast.io/janrubin/toss-a-coin-to-your-helper/%EF%BC%89">https://decoded.avast.io/janrubin/toss-a-coin-to-your-helper/）</a>:</h3><p>CoinHelper 大多与 WinRAR 和游戏秘籍等破解软件安装程序捆绑在一起。</p>
+<p>其传播方式之一为通过MyKing的僵尸网络的剪切板窃取进行传播（<a target="_blank" rel="noopener" href="https://decoded.avast.io/janrubin/the-king-is-dead-long-live-mykings/%EF%BC%89%E3%80%82">https://decoded.avast.io/janrubin/the-king-is-dead-long-live-mykings/）。</a></p>
+<p>通过剪切板窃取，误导用户在下载软件时，使用被绑定了CoinHelper的软件，从而无意中执行该程序。</p>
+<p>感染流程：</p>
+<p><img src="https://decoded.avast.io/wp-content/uploads/sites/2/2021/11/image-29.png" alt="image"></p>
+<ol>
+<li><p>修复损坏的存档、执行第二阶段和确保持久性：</p>
+<p>下载获得一个名称和图标均正常的exe文件（为一个已经编译的Autolt二进制文件）。</p>
+<p>提取后，可以获得三个组件：</p>
+<ul>
+<li><code>asacpiex.dll</code>（一个损坏（修改）的 7zip 存档，带有恶意软件的第二阶段）</li>
+<li><code>CL_Debug_Log.txt</code>（干净的 7zip 独立可执行文件）</li>
+<li><code>glue\ChromeSetup.exe</code></li>
+</ul>
+<p>第一阶段还包含一个非常简单但有效的附加功能：攻击者收集有关受害者的信息，重点关注受害者的操作系统、安装的 RAM 数量、CPU 和显卡信息，以及系统上存在的安全解决方案。所有收集到的信息都被格式化并连接成一个字符串。</p>
+<p>然后，该字符串通过 GET 请求以用户代理的形式发送到硬编码的 URL 地址。在我们的示例中，硬编码的 URL 看起来像<code>https://2no[.]co/1wbYc7</code>.</p>
+</li>
+<li><p>修复asacpiex.dll后，将其保存为CR_Debug_Log.txt到Temp文件夹中。</p>
+<p>为了解压档案，恶意软件使用密码JDQJndnqwdnqw2139dn21n3b312idDQDB。这是这些 AutoIt dropper 最常用的密码。但是，它不是唯一的，到目前为止，我们还计算了两个额外的密码：</p>
+<p>dkwqdqw9324328NDQDN@@!)(#($%&amp;^!ND21<br>jDWQJkdqkwdqo2m@mdwmsxPAS,sq%<br>解包显示两个附加文件：</p>
+<p>32.exe<br>64.exe</p>
+<p>根据操作系统的体系结构以及 AES 指令集是否可用，这些文件之一将被复制到<br><code>C:\Users\&lt;username&gt;\AppData\Roaming\Microsoft\Windows\Helper.exe</code><br>并执行（通过计划任务）。</p>
+<p>这两个文件都再次编译了 AutoIt 脚本，具有通过 Tor 网络以硬币矿工的形式向受害者分发更多有效负载的功能。</p>
+<p>尽管<code>Helper.exe</code>它是迄今为止最常见的恶意软件名称，但它并不是唯一的可能性。我们在野外看到的其他选项例如：</p>
+<ul>
+<li><code>fuck.exe</code></li>
+<li><code>Helperr.exe</code></li>
+<li><code>svchost.exe</code></li>
+<li><code>System.exe</code></li>
+<li><code>system32.exe</code></li>
+<li><code>WAPDWA;DJ.exe</code></li>
+<li><code>WorkerB.exe</code></li>
+</ul>
+<p>关于hepler.exe：主要目标是通过 Tor 网络将 XMRig 硬币矿工投放到受害者的系统上。</p>
+<p><code>Helper.exe</code>还拥有许多其他功能，例如在受害者的 PC 上执行多个系统检查、将自身注入<code>%WINDIR%\System32\attrib.exe</code>系统二进制文件、检查系统的“空闲”以加强挖掘等等。</p>
+<p>通过tor网络将coinminer下载到受感染系统的准备：</p>
+<p>首先，该恶意软件包含两个额外的十六进制文件。第一个再次是一个干净的 7zip 二进制文件（但不同于<code>CL_Debug_Log.txt</code>），第二个是一个 7zip 存档，其中包含一个干净的 Tor 二进制文件和所属库：</p>
+<ul>
+<li><p><code>libcrypto-1_1-x64.dll</code></p>
+</li>
+<li><p><code>libevent-2-1-7.dll</code></p>
+</li>
+<li><p><code>libevent_core-2-1-7.dll</code></p>
+</li>
+<li><p><code>libevent_extra-2-1-7.dll</code></p>
+<ul>
+<li><code>libgcc_s_seh-1.dll</code></li>
+</ul>
+</li>
+<li><p><code>libssl-1_1-x64.dll</code></p>
+</li>
+<li><p><code>libssp-0.dll</code></p>
+<ul>
+<li><code>libwinpthread-1.dll</code></li>
+</ul>
+</li>
+<li><p><code>tor.exe</code></p>
+</li>
+<li><p><code>zlib1.dll</code></p>
+</li>
+</ul>
+<p>tor解压密码：DxSqsNKKOxqPrM4Y3xeK<br>Tor 执行后，它会监听<code>9303</code>localhost ( <code>127.0.0.1</code>) 上的端口并等待请求。为防止此时出现混淆，请注意默认情况下此执行是隐藏的，因为<code>tor.exe</code>不应将其误认为是 Tor 浏览器。<code>tor.exe</code>是一个提供 Tor 路由的进程（没有 GUI）。在常见的 Tor 浏览器安装中，通常可以在<code>\&lt;Tor browser root folder&gt;\Browser\TorBrowser\Tor\tor.exe</code>.<br>该脚本还包含 C&amp;C 服务器的一些 Base64 编码的 Tor 地址，并尝试哪个是活着的。这是通过通过精心制作的请求（以十六进制形式）初始化 SOCKS4 通信来完成的：所需的服务器地址<br> <code>04 01 00 50 00 00 00 FF 00 $host 00</code><br> 该恶意脚本仅仅在收到一个包含了0x5A字节的标准协议响应后才会进一步与服务器进行通信。</p>
+<p>恶意软件能从服务器上下载四个文件：</p>
+<ul>
+<li><code>public/upd.txt</code></li>
+<li><code>public/64/64.txt</code>（或者<code>public/32/32.txt</code>如果使用脚本的“32 位变体”）</li>
+<li><code>public/vc/amd.txt</code></li>
+<li><code>public/vc/nvidia.txt</code></li>
+</ul>
+<p>文件<code>64.txt</code>( <code>32.txt</code>)、<code>amd.txt</code>和<code>nvidia.txt</code>都是 <strong>XMRig coinminers（编码和压缩），用于 CPU 或相应的 GPU 卡</strong>。</p>
+<p>该<code>upd.txt</code>文件是一个纯文本文件，其中包含由<code>_</code>和<code>!</code>符号界定的版本号，例如<code>_!1!_</code>. 恶意软件会询问服务器当前版本多少，如果版本较新，则所有 coinminers都会更新。</p>
+<p>矿工从 C&amp;C 下载为十六进制字符串，以常量字符串结尾<code>_!END!_</code>。移除结束存根并解码字符串后，我们得到一个 7zip 存档。我们可以使用<code>DxSqsNKKOxqPrM4Y3xeK</code>密码来解压它。</p>
+<p>解压后，我们可以得到这些文件：</p>
+<ul>
+<li><code>SysBackup.txt</code>– 适用于 CPU 矿工（32 位和 64 位）</li>
+<li><code>SysBackupA.txt</code>– 当还检测到 AMD GPU 时</li>
+<li><code>SysBackupN.txt</code>– 当还检测到 NVIDIA GPU 时</li>
+</ul>
+<p>这些文件再次以十六进制形式出现，这次以<code>0x</code>前缀开头，没有结束存根。</p>
+<hr>
+<p><strong>挖矿</strong></p>
+<p>挖矿（和 7zip 解包）是通过进程注入执行的。CPU 挖矿是通过注入新创建和挂起的 <code>%WINDIR%\System32\attrib.exe</code>.</p>
+<p>所有其他组件的执行，例如 GPU 挖掘或从 Tor 下载的 coinminer 有效载荷的解包，都是通过注入自身来完成的，这意味着使用一个新的暂停实例<code>Helper.exe</code>进行注入。当支持 GPU 挖矿时，CPU 和 GPU 并行执行。</p>
+<p>根据我们的研究，我们只看到 XMRig 被部署为最终的挖矿有效载荷。该恶意软件使用通用参数执行它，其中一种方法值得一提——为挖矿服务器“设置密码”的参数<code>-p</code>。在标准情况下，密码并不重要，因此恶意软件作者通常使用“ <code>x</code>”作为密码。然而，在这种情况下，恶意软件会生成受害者的 GUID 并将其附加到通常的“ <code>x</code>”中。</p>
+<p><strong>持久性</strong></p>
+<p>与第一阶段类似，在第二阶段开始时，会检查并在必要时创建特定的互斥锁：</p>
+<ul>
+<li><code>QPRZ1bWvXh</code></li>
+<li><code>QPRZ1bWvXh2</code></li>
+</ul>
+<p>正如我们所看到的，与第一阶段（）相比，只有互斥锁中间的数字发生了变化<code>QPRZ3bWvXh</code>。第二个互斥体附加了一个常量<code>2</code>。我们也看到<code>QPRZ2bWvXh</code>了使用，再次更改中间数字。</p>
+<p>为了尽可能长时间地隐藏，恶意软件使用原生 AutoIt <code>ProcessExists</code>功能检查多个进程，以检查任何正在运行的系统监控和分析工具：</p>
+<ul>
+<li><code>aida64.exe</code></li>
+<li><code>AnVir.exe</code></li>
+<li><code>anvir64.exe</code></li>
+<li><code>GPU-Z.exe</code></li>
+<li><code>HWiNFO32.exe</code></li>
+<li><code>HWiNFO64.exe</code></li>
+<li><code>i7RealTempGT.exe</code></li>
+<li><code>OpenHardwareMonitor.exe</code></li>
+<li><code>pchunter64.exe</code></li>
+<li><code>perfmon.exe</code></li>
+<li><code>ProcessHacker.exe</code></li>
+<li><code>ProcessLasso.exe</code></li>
+<li><code>procexp.exe</code></li>
+<li><code>procexp64.exe</code></li>
+<li><code>RealTemp.exe</code></li>
+<li><code>RealTempGT.exe</code></li>
+<li><code>speedfan.exe</code></li>
+<li><code>SystemExplorer.exe</code></li>
+<li><code>taskmgr.exe</code></li>
+<li><code>VirusTotalUpload2.exe</code></li>
+</ul>
+<p>当发现该工具时，恶意软件会暂时禁用挖掘。有关运行硬币矿工的信息存储在两个文件中：</p>
+<ul>
+<li><code>mn.pid</code></li>
+<li><code>gmn.pid</code></li>
+</ul>
+<p>该恶意软件还监控受害者目前是否实际使用他们的 PC。如果用户空闲了一段时间，在我们的特殊情况下为 3 分钟，当前的挖矿将终止，并执行一个新的挖矿过程并设置为在所有线程上利用 100% 的 CPU。此信息 (PID) 存储在名为<code>mn.ld</code>. 主动使用 PC 时，挖矿设置为可用性能的 50%。另一方面，GPU 挖掘<strong>仅</strong>在用户没有主动使用他们的 PC 时（2 分钟）执行。</p>
+<p>该恶意软件还列出了系统上存在的所有控制台窗口，并找出那些可见性设置为隐藏的控制台窗口。如果找到这样的窗口并且它不属于 CoinHelper，则恶意软件会</p>
+<p>程。</p>
+<p><strong>数据收集和反病毒检查</strong></p>
+<p>与之前的 AutoIt 阶段类似，它<code>Helper.exe</code>也会收集有关受感染系统的信息。</p>
+<p>如果检测到任何在列表中的卡并且视频适配器名称与“ <code>Advanced Micro Devices, Inc.</code>”或“ <code>NVIDIA</code>”匹配，则恶意软件使用 XMRig 来利用 GPU 进行挖矿。</p>
+</li>
+<li><p>除了我们开始调查的 Yandex 磁盘存储之外，我们可以确认，传播 CoinHelper 的另一种重要方法是通过放置在专注于破解软件的互联网论坛上的恶意种子。</p>
+</li>
+</ol>
+<h3 id="四、DirtyMoe-Introduction-and-General-Overview-of-Modularized-Malware：https-decoded-avast-io-martinchlumecky-dirtymoe-1"><a href="#四、DirtyMoe-Introduction-and-General-Overview-of-Modularized-Malware：https-decoded-avast-io-martinchlumecky-dirtymoe-1" class="headerlink" title="四、DirtyMoe: Introduction and General Overview of Modularized Malware：https://decoded.avast.io/martinchlumecky/dirtymoe-1/"></a>四、DirtyMoe: Introduction and General Overview of Modularized Malware：<a target="_blank" rel="noopener" href="https://decoded.avast.io/martinchlumecky/dirtymoe-1/">https://decoded.avast.io/martinchlumecky/dirtymoe-1/</a></h3><ol>
+<li><p>DirtyMoe整体介绍：</p>
+<p>DirtyMoe 恶意软件使用了一个简单的想法，即如何同时<strong>模块化、不可检测和不可跟踪</strong>。该恶意软件的目标主要集中在 Cryptojacking 和 DDoS 攻击。DirtyMoe 通过 EternalBlue 和至少三个其他漏洞在系统级权限下作为 Windows 服务运行。特定功能由恶意软件作者远程控制，他们可以在几个小时内将数千个 DirtyMoe 实例重新配置为所需的功能。DirtyMoe 只是下载一个加密的有效载荷，对应于所需的功能，并将有效载荷注入自身。</p>
+</li>
+<li><p>感染方式：</p>
+<p>攻击者通过端口扫描和漏洞开放数据库，发现并瞄准大量弱计算机。PurpleFox 是 DirtyMoe 常用的漏洞利用工具包。之后通过如EnternalBlue漏洞或 SMB 密码暴力破解 Windows 等获取管理员权限。</p>
+<p>用 DirtyMoe 感染受害者机器的另一种方法是钓鱼电子邮件，其中包含可以通过 Internet Explorer 攻击目标的 URL。</p>
+<p>此外，通过受感染的正常文件来部署也是方式之一。</p>
+<p>当其中一个漏洞利用成功并获得系统权限时，DirtyMoe 可以安装在受害者的机器上。我们观察到 DirtyMoe 利用 Windows MSI Installer 来部署恶意软件。MSI Installer 提供了一种在多个平台和 Windows 版本上安装适当软件的简单方法。每个版本都需要安装文件和注册表项的不同位置。恶意软件作者可以轻松地为目标系统和平台设置 DirtyMoe 配置。</p>
+<p>MSI Installer 通过 MSI 安装程序将受害者环境准备到适当的状态。他们专注于禁用反间谍软件和文件保护功能。此外，MSI 软件包使用一项系统功能，该功能有助于覆盖系统文件以进行恶意软件部署。</p>
+<p>MSI Installer 通过修改注册表，修改系统文件从而避免自身被检测。</p>
+<p>DirtyMoe 服务在 maware 部署期间在系统中注册。在开始时，该服务提取并加载 DirtyMoe 驱动程序以保护自己。加载驱动程序时，该服务会从文件系统和注册表中清除有关该驱动程序的所有证据。</p>
+<p>DirtyMoe 恶意软件由两个进程组成，即<em>DirtyMoe Core</em>和<em>DirtyMoe Executioner</em>，由 DirtyMoe 服务创建，如果进程被创建和配置，则会自行终止。DirtyMoe 服务通过多个随时间终止的进程和线程创建<em>核心</em>和<em>执行器进程。</em>因此，取证和跟踪方法更加困难。</p>
+</li>
+<li><p>安装：</p>
+<p><em>DirtyMoe Core</em>负责将恶意代码注入执行它的<em>DirtyMoe Executioner</em>。注入的代码，称为 MOE 对象或模块，是从 C&amp;C 服务器下载的。MOE 对象是<em>DirtyMoe Core</em>解密并注入<em>DirtyMoe Executioner</em>的加密 PE 文件。</p>
+<p>此外，确定<em>DirtyMoe Core</em>介绍行为的初始有效负载由 MSI 安装程序部署为<code>sysupdate.log</code>文件。因此，<em>DirtyMoe Core</em>可以通过有效负载注入来更新或更改自己的功能。</p>
+</li>
+<li><p>控制和行动：</p>
+<p><em>DirtyMoe Core</em>和<em>DirtyMoe Executioner</em>为恶意软件作者提供了一个接口，他们可以远程模块化 DirtyMoe 并通过 MOE 对象更改用途和配置。<em>DirtyMoe Core</em>与命令和控制 (C&amp;C) 服务器通信以获取攻击者命令。因此，整个复杂的层次结构高度模块化，配置和控制非常灵活。</p>
+<p>C&amp;C 通信的阴险之处在于 DirtyMoe 没有使用固定的 IP 地址，而是实施了一种独特的机制来混淆最终的 C&amp;C 服务器地址。因此，不可能阻止受害者机器上的 C&amp;C 服务器，因为每次 C&amp;C 通信的服务器地址都不同。此外，该机制基于无法轻易阻止的 DNS 请求，因为它会影响日常通信。</p>
+<blockquote>
+<p>关于 DirtyMoe 模块化，如果恶意软件作者不需要进行有针对性的攻击，加密挖掘似乎是一种持续使用受害者机器的活动。因此，加密采矿是和平时期的一项活动。然而，绿盟科技威胁情报中心发现了分布式拒绝服务（DDoS）攻击[<a target="_blank" rel="noopener" href="https://decoded.avast.io/martinchlumecky/dirtymoe-1/#ref">1]</a>。一般来说，DirtyMoe 可以将任意恶意软件部署到受感染的系统中，例如信息窃取器、勒索软件、木马等。</p>
+</blockquote>
+</li>
+<li><p>自我保护机制：</p>
+<p> DirtyMoe 驱动程序提供了广泛的功能；请参阅以下候选名单：</p>
+<ul>
+<li>Minifilter：对目录枚举的影响（隐藏、插入、修改）</li>
+<li>注册表隐藏：可以隐藏已定义的注册表项</li>
+<li>服务隐藏：修补<code>service.exe</code>结构以隐藏所需的服务</li>
+<li>驱动隐藏：可以在系统中隐藏自己</li>
+</ul>
+<p>DirtyMoe 代码包含许多可以被大多数 AV 捕获的恶意模式。恶意软件作者使用 <strong>VMprotect 来混淆 DirtyMoe 服务 DLL 文件</strong>。下载的 DirtyMoe 对象使用硬编码密钥使用对称密码进行加密。我们已经看到了几个 MOE 对象，<strong>它们本质上包含相同的 PE 文件，只是 PE 标头不同</strong>。尽管如此，即使是这些轻微的修改也足以让使用的密码产生完全不同的 MOE 对象。因此，<strong>静态检测不能应用于 MOE 加密对象</strong>。此外，DirtyMoe 不会将解密后的 MOE 对象（PE 文件）转储到文件系统中，而是<strong>直接将 MOE 对象注入内存</strong>。</p>
+<p> DirtyMoe 工作人员是通过多个进程和线程启动的。工作人员最初运行为<code>svchost.exe</code>，但 DirtyMoe 驱动程序将工作人员的进程名称更改为<code>fontdrvhost.exe</code>。DirtyMoe 有两个相互保护的工作进程（<em>Core</em>和<em>Executioner</em>）。因此，如果第一个工作人员被杀死，第二个工作人员将启动第一个工作人员的新实例，反之亦然。</p>
+<p><strong>反检测</strong>补充：DirtyMoe: Deployment：<a target="_blank" rel="noopener" href="https://decoded.avast.io/martinchlumecky/dirtymoe-4/">https://decoded.avast.io/martinchlumecky/dirtymoe-4/</a></p>
+<p><strong>DisableAntiSpyware</strong><br><code>HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows Defender\DisableAntiSpyware = 1</code><br>Microsoft Defender Antivirus 可以通过将<code>DisableAntiSpyware</code>注册表项设置为 1 来禁用。因此，如果系统没有第三方防病毒产品，则系统没有针对恶意软件的保护，包括间谍软件。</p>
+<p><strong>SFCDisable</strong><br><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCDisable = 4</code><br>Windows 文件保护 (WFP) 可防止非系统应用程序替换可能导致操作系统完整性和稳定性问题的关键 Windows 系统文件。WFP 通常在所有版本的 Windows中默认启用。</p>
+<p>自然地，DirtyMoe 希望避免 WFP 检测到对系统文件进行任何操作的情况。因此，该<code>SFCDisable</code>值设置为4，启用 WFP，但 GUI 不会弹出每个 WFP 操作。效果是 WFP 已启用，因此不会调用系统警报，但会为用户隐藏 WFP 警告。<strong>这仅适用于 Windows XP。</strong></p>
+<p><strong>SFCScan</strong><br><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SFCScan = 0</code><br>系统文件检查器 (SFC) 提供扫描受系统保护的文件的能力。SFC 验证文件版本，如果它检测到任何文件操作，SFC 将文件更新为正确的版本。这种注册表操作有助于禁用 SFC 保护滥用的 Windows 服务。此设置仅影响文件扫描，但 WFP 仍可处于活动状态。</p>
+<p><strong>SvcHostSplitThresholdInKB</strong><br><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SvcHostSplitThresholdInKB = 0xFFFFFFFF</code><br>关键的注册表操作控制系统启动和设备配置的某些方面。</p>
+<p>在大多数情况下，Windows 服务从 Windows 通过通用主机进程 (svchost.exe) 执行的动态链接库运行。托管进程可以在一个进程中加载更多服务 (DLL) 作为线程。这是 Windows XP 时代的历史遗留物，当时系统内存曾经是一种稀缺商品。该系统使用了一些托管所有 Windows 服务的服务主机进程，由 DLL 文件表示，因为进程的创建和维护在系统内存方面是昂贵的。</p>
+<p>如今，没有理由将服务分组在几个进程中，由此产生的积极影响是提高了系统的稳定性和安全性，以及更容易进行错误分析。服务现在通常不再共享进程；提供系统功能的小程序有一个独占的内存位置。并且如果 svchost.exe 进程崩溃，它不再拖着整个服务链。</p>
+<p>Windows 10 带有一个阈值 ( <code>SvcHostSplitThresholdInKB</code>)，用于确定何时应将服务创建为常规进程。默认值为 380,000，因此如果系统内存小于 3.5 GB，则使用分组服务模型。也就是说，增大阈值可以减少宿主进程的数量，从而判断服务进程是否被拆分。</p>
+<p>我们以 Windows 10 为例，如果该值设置为 1，则主机进程数约为。70. 等于最大值 ( <code>0xFFFFFFFF</code>) 的阈值导致主机进程数仅为 26。</p>
+<p>最大值<code>SvcHostSplitThresholdInKB</code>可以隐藏有关运行进程的详细信息。因此，恶意软件作者将阈值设置为最大值以隐藏线程中的恶意服务活动。结果，恶意服务在其线程之一中的一个主机进程中运行。因此，跟踪和取证分析变得更加困难，因为 svchost 进程托管了许多其他服务，并且很难将系统活动分配给恶意软件服务。</p>
+</li>
+</ol>
+<h3 id="五、Crackonosh-A-New-Malware-Distributed-in-Cracked-Software：https-decoded-avast-io-danielbenes-crackonosh-a-new-malware-distributed-in-cracked-software"><a href="#五、Crackonosh-A-New-Malware-Distributed-in-Cracked-Software：https-decoded-avast-io-danielbenes-crackonosh-a-new-malware-distributed-in-cracked-software" class="headerlink" title="五、Crackonosh: A New Malware Distributed in Cracked Software：https://decoded.avast.io/danielbenes/crackonosh-a-new-malware-distributed-in-cracked-software/"></a>五、Crackonosh: A New Malware Distributed in Cracked Software：<a target="_blank" rel="noopener" href="https://decoded.avast.io/danielbenes/crackonosh-a-new-malware-distributed-in-cracked-software/">https://decoded.avast.io/danielbenes/crackonosh-a-new-malware-distributed-in-cracked-software/</a></h3><p>下图描述了整个 Crackonosh 安装过程。</p>
+<p><a target="_blank" rel="noopener" href="https://decoded.avast.io/wp-content/uploads/sites/2/2021/06/Installation-process.png"><img src="https://decoded.avast.io/wp-content/uploads/sites/2/2021/06/Installation-process.png" alt="img"></a>安装示意图</p>
+<ol>
+<li>首先，受害者运行破解软件的安装程序。</li>
+<li>安装程序运行<code>maintenance.vbs</code></li>
+<li><code>Maintenance.vbs</code>然后使用开始安装<code>serviceinstaller.msi</code></li>
+<li><code>Serviceinstaller.msi</code>注册并运行<code>serviceinstaller.exe</code>，主要的恶意软件可执行文件。</li>
+<li><code>Serviceintaller.exe</code> 运行<code>StartupCheckLibrary.DLL</code>。</li>
+<li><code>StartupCheckLibrary.DLL</code>下载并运行<code>wksprtcli.dll</code>。</li>
+<li><code>Wksprtcli.dll</code> 提取更新并<code>winlogui.exe</code> 删除它包含的内容，解密并放置在文件夹中。</li>
+</ol>
+<p>规避和禁用安全软件所采取的具体措施包括：</p>
+<ul>
+<li>在安全模式下删除防病毒软件</li>
+<li>停止 Windows 更新(它会删除以下注册表项以停止 Windows Defender 并关闭自动更新。)</li>
+<li>用绿色勾选系统托盘图标替换 Windows 安全</li>
+<li>使用的库不使用将<code>DllMain</code>库作为主可执行文件 (by <code>rundll32.exe</code>) 运行时使用的常用库，而是从其他一些导出函数开始。</li>
+<li>Serviceinstaller 测试它是否在安全模式下运行</li>
+</ul>
+<p>为了防止分析，它会采取以下操作来测试以确定它是否在 VM 中运行：</p>
+<ul>
+<li>检查注册表项：<ul>
+<li><code>SOFTWARE\VMware, Inc</code></li>
+<li><code>SOFTWARE\Microsoft\Virtual Machine\Guest\Parameters</code></li>
+<li><code>SOFTWARE\Oracle\VirtualBox Guest Additions</code></li>
+</ul>
+</li>
+<li>测试计算机时间是否在某个合理的时间间隔内，例如在恶意软件创建之后和 2023 年之前 ( <code>wksprtcli.dll</code>)</li>
+</ul>
+<p>此外，如前所述，它会延迟运行以更好地隐藏自己。我们发现特定安装程序使用硬编码的日期和时间来延迟，如下所示。</p>
+<table>
+<thead>
+<tr>
+<th><strong>SHA of installer</strong></th>
+<th><strong>Installer doesn’t run before</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9EC3DE9BB9462821B5D034D43A9A5DE0715FF741E0C171ADFD7697134B936FA3</td>
+<td>2018-06-10 13:08:20</td>
+</tr>
+<tr>
+<td>8C52E5CC07710BF7F8B51B075D9F25CD2ECE58FD11D2944C6AB9BF62B7FBFA05</td>
+<td>2018-06-19 14:06:37</td>
+</tr>
+<tr>
+<td>93A3B50069C463B1158A9BB3A8E3EDF9767E8F412C1140903B9FE674D81E32F0</td>
+<td>2018-07-04 17:33:20</td>
+</tr>
+<tr>
+<td>6A3C8A3CA0376E295A2A9005DFBA0EB55D37D5B7BF8FCF108F4FFF7778F47584</td>
+<td>2018-07-10 15:35:57</td>
+</tr>
+<tr>
+<td>4B01A9C1C7F0AF74AA1DA11F8BB3FC8ECC3719C2C6F4AD820B31108923AC7B71</td>
+<td>2018-07-25 13:56:35</td>
+</tr>
+<tr>
+<td>65F39206FE7B706DED5D7A2DB74E900D4FAE539421C3167233139B5B5E125B8A</td>
+<td>2018-08-03 15:50:40</td>
+</tr>
+<tr>
+<td>C6817D6AFECDB89485887C0EE2B7AC84E4180323284E53994EF70B89C77768E1</td>
+<td>2018-08-14 12:36:30</td>
+</tr>
+<tr>
+<td>7F836B445D979870172FA108A47BA953B0C02D2076CAC22A5953EB05A683EDD4</td>
+<td>2018-09-13 12:29:50</td>
+</tr>
+<tr>
+<td>D8C092DE1BF9B355E9799105B146BAAB8C77C4449EAD2BDC4A5875769BB3FB8A</td>
+<td>2018-10-01 13:52:22</td>
+</tr>
+<tr>
+<td>E497EE189E16CAEF7C881C1C311D994AE75695C5087D09051BE59B0F0051A6CF</td>
+<td>2018-10-19 14:15:35</td>
+</tr>
+<tr>
+<td>D7A9BF98ACA2913699B234219FF8FDAA0F635E5DD3754B23D03D5C3441D94BFB</td>
+<td>2018-11-07 12:47:30</td>
+</tr>
+</tbody></table>
+<p>它还采取了特定的行动来隐藏自己，以免使用可能会泄露其存在的工具的可能的高级用户。</p>
+<p>它使用类似 Windows 的名称和描述，例如 <code>winlogui.exe</code>Windows 登录 GUI 应用程序。</p>
+<p>它还检查正在运行的进程并将其与下面的阻止列表进行比较。如果它找到具有指定名称的进程<code>winrmsrv.exe</code>并<code>winlogui.exe</code>终止自身并等待PC的下一次启动。</p>
+<ul>
+<li><ul>
+<li>Blocklist:<ul>
+<li>dumpcap.exe</li>
+<li>fiddler.exe </li>
+<li>frst.exe </li>
+<li>frst64.exe </li>
+<li>fse2.exe </li>
+<li>mbar.exe </li>
+<li>messageanalyzer.exe </li>
+<li>netmon.exe </li>
+<li>networkminer.exe </li>
+<li>ollydbg.exe </li>
+<li>procdump.exe </li>
+<li>procdump64.exe </li>
+<li>procexp.exe </li>
+<li>procexp64.exe </li>
+<li>procmon.exe </li>
+<li>procmon64.exe </li>
+<li>rawshark.exe </li>
+<li>rootkitremover.exe </li>
+<li>sdscan.exe </li>
+<li>sdwelcome.exe </li>
+<li>splunk.exe </li>
+<li>splunkd.exe </li>
+<li>spyhunter4.exe </li>
+<li>taskmgr.exe</li>
+<li>tshark.exe </li>
+<li>windbg.exe </li>
+<li>wireshark-gtk.exe </li>
+<li>wireshark.exe </li>
+<li>x32dbg.exe </li>
+<li>x64dbg.exe </li>
+<li>X96dbg.exe</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="六、HackBoss-A-cryptocurrency-stealing-malware-distributed-through-Telegram：https-decoded-avast-io-romanalinkeova-hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram"><a href="#六、HackBoss-A-cryptocurrency-stealing-malware-distributed-through-Telegram：https-decoded-avast-io-romanalinkeova-hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram" class="headerlink" title="六、HackBoss: A cryptocurrency-stealing malware distributed through Telegram：https://decoded.avast.io/romanalinkeova/hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram/"></a>六、HackBoss: A cryptocurrency-stealing malware distributed through Telegram：<a target="_blank" rel="noopener" href="https://decoded.avast.io/romanalinkeova/hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram/">https://decoded.avast.io/romanalinkeova/hackboss-a-cryptocurrency-stealing-malware-distributed-through-telegram/</a></h3><p>在窃取加密货币的恶意软件属于三个主要类别之一： </p>
+<ul>
+<li><code>Password stealers</code>：专注于窃取加密货币钱包或带有密码的文件的恶意软件。</li>
+<li><code>Coinminers</code>：使用受害者机器的计算能力来挖掘加密货币的恶意软件。</li>
+<li><code>Keyloggers</code>：记录击键以记录密码或助记词的恶意软件。</li>
+</ul>
+<p>这三类与加密货币相关的恶意软件加起来是过去一年中常见的第三大恶意软件类型。</p>
+<p><img src="https://decoded.avast.io/wp-content/uploads/sites/2/2021/04/image-16.png" alt="img"><em>自 2020 年 3 月至 2021 年 3 月以来最常见的恶意软件类型</em></p>
+<p>HackBoss 是一个简单的窃取加密货币的恶意软件，但它的金钱收益非常可观。这种恶意软件最有趣的方面是它传递给受害者的方式。HackBoss 的作者拥有一个 Telegram 频道，他们将其用作传播恶意软件的主要来源.</p>
+<p>Hack Boss 频道上宣传虚假破解或黑客应用程序的帖子通常包含一个指向加密或匿名文件存储的链接，可以从中下载应用程序。该帖子还包含对应用程序假定功能的虚假描述以及应用程序 UI 的屏幕截图。它有时还包含一个指向 YouTube 频道的链接<code>https://www.youtube.com/channel/UC1IEdha7riKwVCfPk</code>（该频道在发布时已被删除）<code>Bank God</code> ，并带有促销视频。</p>
+<p>Hack Boss 频道上宣传虚假破解或黑客应用程序的帖子通常包含一个指向加密或匿名文件存储的链接，可以从中下载应用程序。该帖子还包含对应用程序假定功能的虚假描述以及应用程序 UI 的屏幕截图。它有时还包含一个指向 YouTube 频道的链接<code>https://www.youtube.com/channel/UC1IEdha7riKwVCfPk</code>（该频道在发布时已被删除）<code>Bank God</code> ，并带有促销视频。</p>
+<h3 id="七、SkidMap病毒利用Redis未授权访问漏洞攻击，数千台云主机沦为矿机（Linux）：https-mp-weixin-qq-com-s-biz-MzI5ODk3OTM1Ng-amp-mid-2247498404-amp-idx-2-amp-sn-bb356408fb8abc6e8d5a3411a42daa7a-amp-scene-19-wechat-redirect"><a href="#七、SkidMap病毒利用Redis未授权访问漏洞攻击，数千台云主机沦为矿机（Linux）：https-mp-weixin-qq-com-s-biz-MzI5ODk3OTM1Ng-amp-mid-2247498404-amp-idx-2-amp-sn-bb356408fb8abc6e8d5a3411a42daa7a-amp-scene-19-wechat-redirect" class="headerlink" title="七、SkidMap病毒利用Redis未授权访问漏洞攻击，数千台云主机沦为矿机（Linux）：https://mp.weixin.qq.com/s?__biz=MzI5ODk3OTM1Ng==&amp;mid=2247498404&amp;idx=2&amp;sn=bb356408fb8abc6e8d5a3411a42daa7a&amp;scene=19#wechat_redirect"></a>七、SkidMap病毒利用Redis未授权访问漏洞攻击，数千台云主机沦为矿机（Linux）：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI5ODk3OTM1Ng==&amp;mid=2247498404&amp;idx=2&amp;sn=bb356408fb8abc6e8d5a3411a42daa7a&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=MzI5ODk3OTM1Ng==&amp;mid=2247498404&amp;idx=2&amp;sn=bb356408fb8abc6e8d5a3411a42daa7a&amp;scene=19#wechat_redirect</a></h3><ul>
+<li>利用redis未授权访问漏洞入侵云主机；</li>
+<li>下载门罗币、莱特币、比特币挖矿木马，通过挖矿牟利；</li>
+<li>添加SSH公钥，以持久化远控失陷主机；</li>
+<li>下载功能更加复杂的恶意软件包：接受远程指令，清除系统审计日志，安装服务，关闭SELinux降低系统安全性，通过安装Linux内核模块隐藏恶意行为。</li>
+</ul>
+<p>SkidMap病毒在2019年9月左右被发现，主要目标为感染肉鸡挖矿，该病毒的明显特征为通过加载Linux恶意内核模块来隐藏其恶意行为，增加了运维人员排查威胁的难度。</p>
+<p>此次SkidMap病毒感染后会下载XMRig（门罗币挖矿木马）、cpuminer（莱特币和比特币挖矿木马），同时写入SSH后门公钥以方便远程登录，然后下载恶意程序包gold8.tar.gz，通过3DES解压后释放多个模块，完成挖矿木马启动、替换pam_unix.so文件留置登陆后门、上传日志到远程服务器，安装远控程序rctl的功能，还会安装Linux内核模块对恶意行为进行隐藏。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWWAXmCiceVcSLGmpT1yiabDzr7RZpFMhPrhk6Jspzj7HrYGXyX9sd8XVcK1k7vjV9lATGgrzibcKrqvw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<center>SkidMap病毒最新变种的恶意行为</center>
+
+<h3 id="八、Sysrv-hello僵尸网络集木马、后门、蠕虫于一身，攻击Linux、Windows主机挖矿：https-mp-weixin-qq-com-s-biz-MzI5ODk3OTM1Ng-amp-mid-2247497474-amp-idx-1-amp-sn-87eb580380ee3ff5efd389da419f82c9-amp-scene-19-wechat-redirect"><a href="#八、Sysrv-hello僵尸网络集木马、后门、蠕虫于一身，攻击Linux、Windows主机挖矿：https-mp-weixin-qq-com-s-biz-MzI5ODk3OTM1Ng-amp-mid-2247497474-amp-idx-1-amp-sn-87eb580380ee3ff5efd389da419f82c9-amp-scene-19-wechat-redirect" class="headerlink" title="八、Sysrv-hello僵尸网络集木马、后门、蠕虫于一身，攻击Linux、Windows主机挖矿：https://mp.weixin.qq.com/s?__biz=MzI5ODk3OTM1Ng==&amp;mid=2247497474&amp;idx=1&amp;sn=87eb580380ee3ff5efd389da419f82c9&amp;scene=19#wechat_redirect"></a>八、Sysrv-hello僵尸网络集木马、后门、蠕虫于一身，攻击Linux、Windows主机挖矿：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI5ODk3OTM1Ng==&amp;mid=2247497474&amp;idx=1&amp;sn=87eb580380ee3ff5efd389da419f82c9&amp;scene=19#wechat_redirect">https://mp.weixin.qq.com/s?__biz=MzI5ODk3OTM1Ng==&amp;mid=2247497474&amp;idx=1&amp;sn=87eb580380ee3ff5efd389da419f82c9&amp;scene=19#wechat_redirect</a></h3><p>该木马不仅攻击Linux系统，同时发现针对Windows平台的恶意载荷，攻击Windows系统成功后会植入powershell恶意脚本，脚本会进一步拉取Windows平台的相同模块到tmp目录执行。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYNEiasBtqHv28bRC3MkrxibbnSHEhJuHwQAeibPCibia9Iy2ziaF5d54icrnwg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>Linux系统下sysrv模块通过使用52013端口作为互斥量，端口开启状态判定为已感染环境直接退出，否则打开本地该端口进行占用。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYV8s9ib6NewG6XaLqLNNvO81uFTBCoTteIksff5gnbbkCoTjuu59fssg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYDexNqyxSGjrQCsj9V8wC2OS6EyFDtldt5RDIsqzUkHJmOmSXh7bZdg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>sysrv通过检测进程，判断network01进程（矿机进程）是否正常运行，如果未正常运行，就在tmp目录进一步释放出文件内嵌的elf文件，并命名为network01将其执行。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYlJjo4gvwviaIic78sFnS3PUdibSNu9ax8bcd1edyBU1JMUTPJjwnvhGfw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYicnYbPzf4tfL3RibSMCcHqPJaTfnp5mUIcPiaCs3Ry3hoX0EZycdD1AQw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYg2eSEYmpwQmxt7sO0qmQvDX6wEtsSlJafOC50RMzLRIDxJEib5XJsrw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>network01模块为门罗币矿机程序，该团伙通过清理可能的竞品挖矿进程或其他占CPU资料较多的进程实现独占CPU资源挖矿。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYibI5wb4WAPI0RoV0flaAVENJCjbkK9svXXNAqWqVP5cLBMameQrLoXw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>sysrv确认挖矿行为正常运行后，会开始进行蠕虫式的攻击传播：进行随机IP的端口扫描与漏洞利用，会尝试对mysql，Tomcat服务进行爆破攻击，尝试对Weblogic服务使用CVE-2020-14882漏洞（该漏洞公告由Oracle官方于2020年10月21日公开）进行远程代码执行攻击，这一横向扩散行为使该团伙控制的肉鸡规模迅速增大。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYrlm1UUrMpua7c2uqIUOc31pmBIjagN1gefmgYCpgnPKXRH2ATcoSYQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYKzbGSl4jicDxKzkt9CNYhKniaGhuxMdUz1xRw4xEqFZN190SicXeNwwPw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>hello_src_exp爆破，漏洞利用组合攻击</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYnEjXuw46MJfOpdlPb3QQXf7vRByRyUCDgcmVo9MDrsF0dcngxAN3NQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>攻击mysql服务使用的弱口令爆破字典</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYlf0XjYQzofW8lhJUkwmvUL6TNKqicUbx5Ichej0ictiasKpibANIpnmvGg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>攻击Tomcat服务使用的爆破口令</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYiannQk0ybp2bC8sRaMuV28RGazCX0PaFDHI9MTtCLI4TywfykEnhb5Q/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>对Weblogic组件利用CVE-2020-14882 远程代码执行漏洞攻击，该安全漏洞为2020年10月Oracle官方公告修复，属于相对比较新的漏洞攻击武器。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYO9MicAygYgvoIuOMFRicePv2oiblSukMgXsqfoZ55LvRNzdUXMRGEBBfg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/6AoQM3RKCWUbhM7Eh1xwnmD5k3tnv1iaYZkqS78hCgOHDLDIzmbAUADicMHbORVOnDvG1SSpj3Jj3kdeJkoZdZGg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<h3 id="九、Putting-an-end-to-Retadup-A-malicious-worm-that-infected-hundreds-of-thousands：https-decoded-avast-io-janvojtesek-putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands-（据文章介绍，服务器已被清查）"><a href="#九、Putting-an-end-to-Retadup-A-malicious-worm-that-infected-hundreds-of-thousands：https-decoded-avast-io-janvojtesek-putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands-（据文章介绍，服务器已被清查）" class="headerlink" title="九、Putting an end to Retadup: A malicious worm that infected hundreds of thousands：https://decoded.avast.io/janvojtesek/putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands/（据文章介绍，服务器已被清查）"></a>九、Putting an end to Retadup: A malicious worm that infected hundreds of thousands：<a target="_blank" rel="noopener" href="https://decoded.avast.io/janvojtesek/putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands/%EF%BC%88%E6%8D%AE%E6%96%87%E7%AB%A0%E4%BB%8B%E7%BB%8D%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B7%B2%E8%A2%AB%E6%B8%85%E6%9F%A5%EF%BC%89">https://decoded.avast.io/janvojtesek/putting-an-end-to-retadup-a-malicious-worm-that-infected-hundreds-of-thousands/（据文章介绍，服务器已被清查）</a></h3><p>Retadup 是一种恶意蠕虫，影响整个拉丁美洲的 Windows 计算机。它的目标是在受害者的计算机上实现持久性，将自身传播得更广泛，并在受感染的计算机上安装额外的恶意软件有效负载。在绝大多数情况下，安装的有效负载是代表恶意软件作者挖掘加密货币的恶意软件。但是，在某些情况下，我们还观察到 Retadup 分发了 Stop 勒索软件和 Arkei 密码窃取程序。</p>
+<p>核心是用 AutoIt 或 AutoHotkey 编写的。在这两种情况下，它都包含两个文件：干净的脚本语言解释器和恶意脚本本身。这与当今大多数 AutoIt 恶意软件不同，后者通常仅由一个包含解释器和恶意脚本的恶意可执行文件组成。在 Retadup 的 AutoHotkey 变种中，恶意脚本作为源代码分发，而在 AutoIt 变种中，脚本首先被编译然后分发。</p>
+<p>首先，程序检查是否存在另一个Retadup实例在运行，以保证任何时间仅有一个实例运行。之后会进行一些基本检查确保自己没有被分析，否则便静默退出。最后进入一个无线循环，定期轮询C&amp;C服务器以获取命令，若收到来自C&amp;C的命令，则执行收到的命令的处理程序，在联系C&amp;C 的同时，它还会定期执行其他尝试来传播自己并恢复其持久性机制。</p>
+<p>几乎所有的 Retadup 样本都会首先检查它们运行的文件系统路径。如果解释器路径或脚本路径与预期不同，则脚本不会执行任何恶意操作。大多数示例还实现了一种延迟执行的方法。在执行开始时，它们要么执行一次长睡眠，要么执行一系列多次短睡眠。最后，一些变体还检查名称为<code>vmtoolsd.exe</code> 或 <code>procmon.exe</code>的进程是否正在运行、名称为<code>C:\CWSandbox\</code>或<code>C:\cuckoo\``SbieDll.dll``api_log.dll</code>的目录是否存在以及名称为 或 的模块是否已加载到当前进程中。</p>
+<p><strong>Retadup 通过在其中创建注册表值<code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code>和&#x2F;或创建计划任务来实现持久性</strong>。计划任务是使用<code>schtasks.exe</code>实体程序创建的，并设置为每分钟执行一次。Retadup 的 AutoIt 变体通常使用硬编码的注册表值.名称，而 AutoHotkey 变体倾向于使用注册表值和随机生成名称的计划任务。</p>
+<p>Retadup主要通过将恶意快捷方式文件放到驱动器中实现传播。首先，它会遍历除了C盘外的所有驱动器根目录下的文件夹，并在每个文件夹下创建一个快捷方式，该快捷方式与源文件名相同，仅附加一个如<code>copy fpl.lnk</code>的字符后缀，它模拟真实的文件夹从而诱导用户执行。Retadup还将干净的AutoIt&#x2F;AutoHotkey 解释器和恶意脚本复制到系统隐藏目录，该目录位于相对于所选中的<code>LNK</code>文件的硬编码路径中。</p>
+<p>每个 Retadup 样本都配置了一组C&amp;C 域名和端口，样本通过向他们发出 HTTP GET 请求来单独联系他们，样本会在发出的请求的URL的路径中对受害者的一些信息进行编码。虽然编码信息的确切内容和形式在不同的 Retadup 变体中有所不同，但所有 Retadup 变体都会在路径的开头对受害者的 ID 进行编码。</p>
+<p>C&amp;C 服务器从接收到的 GET 请求的路径中解析信息，并返回一个包含要执行的命令的类似混淆的 HTTP 响应。</p>
+<p>对于执行下载的命令，其执行附加 PE 有效负载的方式通常使用多层间接。首先获取 AutoIt 脚本，而不是直接下载和执行 PE 有效负载。AutoIt 脚本中嵌入了一个能够加载嵌入式 PE 文件的 shellcode。shellcode 被复制到通过<code>VirtualAlloc</code>. AutoIt 功能<code>DllCallAddress</code> 然后用于将控制权转移到 shellcode，shellcode 又将控制权加载并传递给最终的 PE 有效负载。这种间接的目的大概是为了避免将 PE 有效负载放到磁盘上，这会增加检测的机会。但上述工作流程并不是专门使用的。在其他一些情况下，我们还观察到 AutoIt 脚本直接下载 PE 文件，删除其区域标识符并直接从磁盘运行它。</p>
+<p>由于内核以 AutoHotkey 源代码或 AutoIt 字节码（易于反编译）的形式分发，因此作者试图对其进行混淆以使分析更加困难。</p>
+<p><strong>挖矿有效载荷</strong></p>
+<p>矿工有效载荷以 32 位 PE 文件的形式出现，并且通常与各种打包程序&#x2F;加密程序打包在一起。以解压样本<code>9c46a0e48ea9b104f982e5ed04735b0078938866e3822712b5a5374895296d08</code>为例：它解密内存中的 XMRig PE 文件，并通过进程挖空将其注入到新创建的进程中。它还动态构建一个 XMRig 配置文件，将其放到磁盘上并将其传递给新创建的进程。该恶意软件在检测到<code>taskmgr.exe</code>运行时停止挖掘，因此用户更难检测到其增加的 CPU 使用率。注入 XMRig 的进程也充当看门狗。如果注入的工作进程因任何原因终止，则看门狗进程会生成一个新的工作进程来替换它。</p>
+<p>从我们的角度来看，这个矿工最有趣的方面是注入方法。在足够高的水平上，注入只是常规的过程空心化。然而，虽然进程空心化通常是通过调用更高级别的函数来实现的，例如<code>WriteProcessMemory</code>or <code>NtMapViewOfSection</code>，但矿工选择了一种更隐蔽的方式直接使用系统调用。这比常规的进程空心化更难实现，但它可能允许作者绕过一些安全解决方案的用户态钩子。</p>
+<p>大多数常规的流程空心实现直接使用从<code>ntdll</code>导出的未记录函数（例如<code>NtUnmapViewOfSection</code>）来实现流程注入。但是，许多终端安全解决方案能够通过挂钩众所周知的函数来检测这种注入方法。因此，某些恶意软件（例如Formbook）会将<code>ntdll</code>的第二个副本加载到其内存中，并调用从该副本导出的函数（这也称为“拉各斯岛”方法）。这背后的想法是，新副本<code>ntdll</code> （通常直接从磁盘读取）可能不包含原始副本所包含的钩子，因此安全软件可能看不到恶意软件调用了哪些函数。</p>
+<p>(ntdll.dll是重要的Windows NT内核级文件。描述了windows本地NTAPI的接口。当Windows启动时，ntdll.dll就驻留在内存中特定的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%86%99%E4%BF%9D%E6%8A%A4">写保护</a>区域，使别的程序无法占用这个内存区域。)</p>
+<p>该矿机使用了上述“拉各斯岛”使用新的未挂钩<code>ntdll</code>副本的方法，但它也更进了一步。与进程空心相关的函数不会通过<code>ntdll</code>. 相反，矿工解析这些函数的主体并提取它们相应的系统调用号（在 Windows 上，系统调用号可以在版本之间更改，因此它们不能简单地在示例中硬编码）。一旦恶意软件获得了必要的系统调用号，它就会直接使用<code>sysenter</code> 指令调用系统调用。</p>
+<p>这是可能的，因为大多数使用的<code>ntdll</code>函数只是系统调用的简单包装器。这样做的结果是恶意软件不调用任何导出的函数，因此常规的用户空间钩子可能不会拦截这些“函数”的使用。</p>
+<p>由于矿工是32位PE文件，上述方法在32位系统上运行良好。但是WOW64呢？当然，矿工不能只从 32 位代码调用 64 位系统调用。相反，它使用了所谓的<a target="_blank" rel="noopener" href="http://rce.co/knockin-on-heavens-gate-dynamic-processor-mode-switching/">天堂之门</a>技术来突破WOW64仿真层。一旦恶意软件通过天堂之门并执行 64 位代码，它就可以直接调用 64 位系统调用，然后返回到 32 位代码。Heaven’s Gate 技术的使用还允许矿工从 WoW64 子系统中注入 64 位版本的 XMRig。</p>
+<p>（WoW64子系统是一个轻量级的compatibility layer, 在所有版本的windows上都拥有同样的接口. 它的主要目的是用来创建32-bit环境, 为了让32位的应用程序可以不经过任何修改就运行在64-bit的系统上, 它提供了必须的接口.</p>
+<p>WOW64 是在用户模式下实现的，作为 ntdll.dll 和内核之间的层。WOW64 及其支持的一些 DLL 仅仅是可以加载到 32 位进程中的 64 位的 DLL。对于所有其他情况，进程保持为纯进程。32 位的进程无法加载 64 位的 DLL，反之亦然。）</p>
+<p>矿工本身不使用任何特殊的混淆（作者可能假设他们使用的加密器就足够了）。但是，创建 XMRig 配置文件的代码包含使用硬编码密钥使用 Vigenère 密码加密的字符串。这似乎是一项基本的努力，使重新利用矿工变得更加困难。否则，其他恶意软件作者修补接收挖矿收入的地址并将矿工用于他们自己的邪恶目的将是微不足道的。</p>
+<h3 id="十、F-Scrack-mimikatz-–-A-bundle-of-tools：https-decoded-avast-io-ondrejmokos-f-scrack-mimikatz-a-bundle-of-tools"><a href="#十、F-Scrack-mimikatz-–-A-bundle-of-tools：https-decoded-avast-io-ondrejmokos-f-scrack-mimikatz-a-bundle-of-tools" class="headerlink" title="十、F-Scrack-mimikatz – A bundle of tools：https://decoded.avast.io/ondrejmokos/f-scrack-mimikatz-a-bundle-of-tools/"></a>十、F-Scrack-mimikatz – A bundle of tools：<a target="_blank" rel="noopener" href="https://decoded.avast.io/ondrejmokos/f-scrack-mimikatz-a-bundle-of-tools/">https://decoded.avast.io/ondrejmokos/f-scrack-mimikatz-a-bundle-of-tools/</a></h3><p>最近，在分析试图绕过各种 applocking 技术的样本时，我们重新审视了旧的各种工具包，其唯一目的是为运营商赚钱。尽管该活动似乎长期不活跃，但它表明创建能够赚钱的恶意软件几乎不需要编写原始代码，所需要的只是使用公开可用的代码片段将现有工具捆绑在一起。</p>
+<p>该链以包含两个文件的自解压存档开始 -<code>Xagent.exe</code>和<code>depszip</code>. Depszip 是一个 ZIP 存档，其中包含各种辅助文件。Xagent.exe 是使用 PyInstaller 创建的二进制文件，并设置为在解压缩 SFX 存档后自动运行。调用了原始 Python 脚本<code>F-Scrack-mimikatz.py</code>并表明该代码源自<a target="_blank" rel="noopener" href="https://github.com/qianniaoge/F-Scrack">F-Scrack</a>工具。</p>
+<p>运行Mimikatz（用于从内存中提取铭文密码、哈希、PIN码等）：存档 depszip 包含 x86 和 x64 版本<code>mimi32.exe</code>以及<code>mimi64.exe</code>.  Mimikatz 找到的凭据被上传到<code>u.swb[.]one/upload/win</code>并用于构建攻击列表。然后使用该攻击列表在本地计算机上运行脚本，使用工具<a target="_blank" rel="noopener" href="https://github.com/Twi1ight/AD-Pentest-Script/blob/master/wmiexec.vbs">wmiexec.vbs</a>和称为<a target="_blank" rel="noopener" href="https://attack.mitre.org/techniques/T1117">Squibldoo</a>的技术。这种技术可能允许绕过安全工具和应用程序白名单的检测，将<code>regsvr32.exe</code>其用作执行代码的“代理”。执行的代码托管在<code>xmr.enjoytopic[.]tk/d/regxmr222.sct</code>.</p>
+<p>通过攻击列表和Squibldoo技术攻击连接到相同LAN的其他计算机（进行端口扫描）。</p>
+<p>之后通国ThreadNum类利用永恒之蓝漏洞排队检查并攻击指定IP和端口。之后通过无身份验证或者使用默认用户名和弱密码尝试访问服务，并查找如贸易、VIP、比特币、门罗币等有用的数据库。将找到的数据库和凭证返回，删除其他数据库并创建要求赎金的条目。</p>
+<p>通过一个VBScript，按照泄露的Vault7文档描述，使用Vmic.exe设置持久性，此外，他还通过注册表设置持久性。它创造了两个键，一个使用mshta.exe运行来自于xmr.enjoytopic[.]tk&#x2F;d&#x2F;ps3.txt的代码，一个使用 Squiblydoo运行来自xmr.enjoytopic[.]tk&#x2F;d&#x2F;regxmr999.sct的代码。</p>
+<p>除了设置持久性之外，该脚本还在受感染的机器上下载并运行 XMRig。XMRig 二进制文件有多个版本。这些二进制文件是定制的——除了运行 XMRig，它们还创建一个计划任务，通过Squibldoo 运行在</p>
+<ul>
+<li><code>xmr.enjoytopic[.]tk/d/regxmr222.sct</code>,</li>
+<li><code>down.cacheoffer[.]tk/d2/reg9.sct</code>,</li>
+<li><code>xmr.enjoytopic[.]tk/d/regxmr999.sct</code></li>
+</ul>
+<p>的代码，并使用vmic.exe保持持久性。</p>
+<p>此外，还用过一个PowerShell脚本，从png.realtimenews[.]tk&#x2F;m.png下载XMRig脚本并运行，并通过每分钟的计划任务写入和运行自身。</p>
+<h3 id="十一、Clipsa-–-Multipurpose-password-stealer：https-decoded-avast-io-janrubin-clipsa-multipurpose-password-stealer-（内容过长，暂时放一放）"><a href="#十一、Clipsa-–-Multipurpose-password-stealer：https-decoded-avast-io-janrubin-clipsa-multipurpose-password-stealer-（内容过长，暂时放一放）" class="headerlink" title="十一、Clipsa – Multipurpose password stealer：https://decoded.avast.io/janrubin/clipsa-multipurpose-password-stealer/（内容过长，暂时放一放）"></a>十一、Clipsa – Multipurpose password stealer：<a target="_blank" rel="noopener" href="https://decoded.avast.io/janrubin/clipsa-multipurpose-password-stealer/%EF%BC%88%E5%86%85%E5%AE%B9%E8%BF%87%E9%95%BF%EF%BC%8C%E6%9A%82%E6%97%B6%E6%94%BE%E4%B8%80%E6%94%BE%EF%BC%89">https://decoded.avast.io/janrubin/clipsa-multipurpose-password-stealer/（内容过长，暂时放一放）</a></h3><p>Clipsa 是一个多用途密码窃取器，用 Visual Basic 编写，专注于从不安全的 WordPress 网站窃取加密货币、暴力破解和窃取管理员凭据、替换剪贴板中的加密地址以及在受感染机器上挖掘加密货币。Clipsa 的几个版本还部署了 XMRig 硬币矿工，以从受感染的计算机中赚取更多的钱。</p>
+<p>我们估计攻击媒介很可能是媒体播放器（<code>Ultra XVid Codec Pack.exe</code>或<code>Installer_x86-x64_89006.exe</code>）的恶意编解码器包安装程序。尝试为其媒体播放器安装这些编解码器的用户会无意中下载恶意安装程序而不是干净的安装程序。一旦用户开始安装过程，他们就会在他们的机器上部署 Clipsa，恶意软件会立即开始其恶意行为。</p>
+<p>Clipsa 使用带有多个参数（命令行参数）的单个可执行二进制文件。这些参数区分作为单独进程同时运行的程序阶段。每个阶段专注于不同的功能，并由 Clipsa 的初始化过程开始，该过程没有任何参数。</p>
+<p>Clipsa 将这些参数用于相位：</p>
+<ol>
+<li><p>无参数</p>
+</li>
+<li><p>–CLIPS</p>
+</li>
+<li><p>–CLIPSS</p>
+</li>
+<li><p>–WALLS</p>
+</li>
+<li><p>–PARSE</p>
+</li>
+<li><p>–BRUTE</p>
+</li>
+</ol>
+<p>阶段 2-4 旨在窃取用户数据，重点关注加密钱包相关数据。第 5 阶段和第 6 阶段的重点是查找易受攻击的 WordPress 网站并窃取其管理凭据。在本分析的其余部分，我们将重点关注这些阶段中的每一个。</p>
+<ol>
+<li><p>无参数阶段：</p>
+<ul>
+<li><p>预安装</p>
+<p>当恶意软件在受感染的机器上运行时，程序无需任何参数即可直观地启动。此阶段允许 Clipsa 在系统上安装和隐藏自身。然后它继续初始化执行恶意操作的其他阶段。</p>
+<p>在预安装阶段，Clipsa 会创建一个消息对话框，使其看起来像是某种设置过程。但是，这个对话框（见下图）实际上只是一个伪装，所以用户认为他们下载的编解码器包正在被安装。事实是该对话框仅显示随机生成的数字（增量相加）并打印总和。Clipsa 还在增量之间添加了随机睡眠，使过程看起来很自然。</p>
+<p><img src="https://lh5.googleusercontent.com/BniDt3p_-XAMargEsAu0knBw16faRT2Fa7dEc6E9QpNLNDq04aFJJ9_a8esJL7sxljKRxhbTbFea4KXTIw0lczlMAyKNbvAnG3BbNfQ1aUxJU1zCvUmxrdduO8kpHRPbSDf9d0MG" alt="img"></p>
+<center>以伪装方式说明设置进度的图</center>
+
+<p>在总和达到 99% 后，该过程关闭对话框。在虚构的设置过程中，恶意软件不会执行任何恶意或有用的操作。我们认为这种行为的目的是延迟实际的恶意进程，从而避免在自动沙盒工具中被检测到。</p>
+<p>虚拟设置完成后，Clipsa 使用 Windows Management Instrumentation (WMI) 检查任务管理器是否正在运行：<br><code>Select * from Win32_Process WHERE Name = &#39;taskmgr.exe&#39;</code><br>如果正在运行，则终止程序以避免用户检测。</p>
+</li>
+<li><p>安装</p>
+<p>Clipsa 然后将自身复制到<code>%APPDATA%\Roaming</code>目录中。特定文件夹和二进制文件的命名取决于 Clipsa 的版本。较新版本之一将自身复制到：<br><code>C:\Users\user\AppData\Roaming\AudioDG\condlg.exe</code></p>
+<p><code>C:\Users\user\AppData\Roaming\AudioDG\zcondlg.exe</code></p>
+<p>在安装过程中，还会创建其他目录和文件：<br><code>C:\Users\user\AppData\Roaming\AudioDG\log.datC:\Users\user\AppData\Roaming\AudioDG\obj\C:\Users\user\AppData\Roaming\AudioDG\udb\</code></p>
+<p>此外，将路径<code>condlg.exe</code>添加到注册表自动运行，确保恶意软件的持久性：<br><code>HCU\Software\Microsoft\Windows\CurrentVersion\Run\11f86284</code></p>
+<p>此外，condlg.exe还会创建一个新进程（不带参数），该进程用作释放器并启动其他恶意阶段。然而，这个过程是从隐藏文件夹 AudioDG 开始的，这正是 Clipsa 知道它已经安装在系统上的方式。</p>
+<p>最后但同样重要的是，最初的 Clipsa 流程注定要结束。即使整个 Clipsa 安装过程成功，恶意软件也会向用户显示错误消息，让用户相信编解码器安装失败，让他们认为没有安装任何内容：</p>
+</li>
+<li><p>condlg.dll 文件</p>
+<p>在安装过程中，Clipsa 会检查用户执行恶意软件的目录中是否存在其他文件。此文件通常命名为65923_VTS.vob或setup.dll. 但是，它既不是多媒体容器也不是库。该文件是由 Clipsa 解密的加密文本文件，并保存到一个新文件中：<br>C:\Users\user\AppData\Roaming\AudioDG\condlg.dll</p>
+<p>该文件包含数千个比特币地址。正如我们稍后将看到的，此文件将用于CLIPS 阶段，在此期间，剪贴板中的加密钱包地址被替换。但是，它的存在是可选的，没有它，Clipsa 也能完全发挥作用。</p>
+<p>请注意，原始文件的名称遵循 Clipsa 伪装成媒体播放器的编解码器包安装程序的假设。</p>
+</li>
+</ul>
+</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">BoneInk</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://boneink.github.io/2023/08/23/%E6%8C%96%E7%9F%BF%E6%A0%B7%E6%9C%AC%E7%89%B9%E5%BE%81%E6%80%BB%E7%BB%93/">https://boneink.github.io/2023/08/23/%E6%8C%96%E7%9F%BF%E6%A0%B7%E6%9C%AC%E7%89%B9%E5%BE%81%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://boneink.github.io" target="_blank">临渊羡鱼</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2022/08/23/WhiteRabbitTracker%E9%A1%B9%E7%9B%AE%E8%BF%90%E8%A1%8C%E5%92%8C%E9%97%AE%E9%A2%98/"><img class="next_cover" src="https://unsplash.com/photos/11tSxJLa5UQ/download?ixid=MnwxMjA3fDB8MXxhbGx8MTB8fHx8fHwyfHwxNjYxMjUwNjE4&amp;force=true" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">WhiteRabbitTracke项目运行和问题</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By BoneInk</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div><div class="footer_custom_text">OK, stop! It's over.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script></body></html>
