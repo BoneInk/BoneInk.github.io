@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://boneink.github.io/2020/05/11/JavaWeb%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://boneink.github.io/2020/05/11/Jquery%20Ajax%20%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-05-11</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://boneink.github.io/2020/05/11/Jquery%20Ajax%20%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://boneink.github.io/2020/05/11/JavaWeb%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2020-05-11</lastmod>
     
@@ -284,35 +284,21 @@
   </url>
   
   <url>
-    <loc>https://boneink.github.io/tags/%E8%BD%AF%E4%BB%B6%E9%80%83%E9%80%B8/</loc>
+    <loc>https://boneink.github.io/tags/Java/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://boneink.github.io/tags/IntelPin/</loc>
+    <loc>https://boneink.github.io/tags/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://boneink.github.io/tags/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E6%A3%80%E6%B5%8B/</loc>
-    <lastmod>2023-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://boneink.github.io/tags/%E4%BD%9C%E4%B8%9A/</loc>
-    <lastmod>2023-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://boneink.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc>
+    <loc>https://boneink.github.io/tags/PTA/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -333,21 +319,35 @@
   </url>
   
   <url>
-    <loc>https://boneink.github.io/tags/Java/</loc>
+    <loc>https://boneink.github.io/tags/%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://boneink.github.io/tags/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/</loc>
+    <loc>https://boneink.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://boneink.github.io/tags/PTA/</loc>
+    <loc>https://boneink.github.io/tags/%E8%BD%AF%E4%BB%B6%E9%80%83%E9%80%B8/</loc>
+    <lastmod>2023-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://boneink.github.io/tags/IntelPin/</loc>
+    <lastmod>2023-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://boneink.github.io/tags/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E6%A3%80%E6%B5%8B/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -382,6 +382,13 @@
   </url>
   
   <url>
+    <loc>https://boneink.github.io/tags/%E6%97%A5%E8%AE%B0/</loc>
+    <lastmod>2023-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://boneink.github.io/tags/mysql/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -390,13 +397,6 @@
   
   <url>
     <loc>https://boneink.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2023-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://boneink.github.io/tags/%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2023-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
