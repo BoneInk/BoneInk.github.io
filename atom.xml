@@ -71,6 +71,28 @@
   </entry>
   
   <entry>
+    <title>java-String性质</title>
+    <link href="https://boneink.github.io/2022/05/16/java-java%E5%9B%9B%E7%A7%8D%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/"/>
+    <id>https://boneink.github.io/2022/05/16/java-java%E5%9B%9B%E7%A7%8D%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/</id>
+    <published>2022-05-16T04:00:00.000Z</published>
+    <updated>2022-05-16T04:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="java四种访问权限"><a href="#java四种访问权限" class="headerlink" title="java四种访问权限"></a>java四种访问权限</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>访问权限控制</strong>： 指的是本类及本类内部的成员（成员变量、成员方法、内部类）对其他类的可见性，即这些内容是否允许其他类访问。</p><p>Java 中一共有四种访问权限控制，其权限控制的大小情况是这样的：<strong>public &gt; protected &gt; default(包访问权限) &gt; private</strong> ,具体的权限控制看下面表格，列所指定的类是否有权限允许访问行的权限控制下的内容：</p><table><thead><tr><th>访问权限</th><th>本类</th><th>本包的类</th><th>子类</th><th>非子类的外包类</th></tr></thead><tbody><tr><td>public</td><td>是</td><td>是</td><td>是</td><td>是</td></tr><tr><td>protected</td><td>是</td><td>是</td><td>是</td><td>否</td></tr><tr><td>default</td><td>是</td><td>是</td><td>否</td><td>否</td></tr><tr><td>private</td><td>是</td><td>否</td><td>否</td><td>否</td></tr></tbody></table><p><strong>1、public：</strong> 所修饰的类、变量、方法，在内外包均具有访问权限；<br><strong>2、protected：</strong> 这种权限是为继承而设计的，protected所修饰的成员，对所有子类是可访问的，但只对同包的类是可访问的，对外包的非子类是不可以访问；<br><strong>3、包访问权限（default）：</strong> 只对同包的类具有访问的权限，外包的所有类都不能访问；<br><strong>4、private：</strong> 私有的权限，只对本类的方法可以使用；</p><p><strong>注意： 要区分开 protected 权限、包访问权限，正确使用它们；</strong></p><ul><li>当某个成员能被所有的子类继承，但不能被外包的非子类访问，就是用protected；</li><li>当某个成员的访问权限只对同包的类开放，包括不能让外包的类继承这个成员，就用包访问权限；<br><strong>使用访问权限控制的原因：</strong><br>1）使用户不要碰触那些他们不该碰触的部分；<br>2）类库设计者可以更改类的内部工作的方式，而不会担心这样会对用户产生重大影响；<br>即分割用户操作和类内部工作区域，减少彼此影响。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;java四种访问权限&quot;&gt;&lt;a href=&quot;#java四种访问权限&quot; class=&quot;headerlink&quot; title=&quot;java四种访问权限&quot;&gt;&lt;/a&gt;java四种访问权限&lt;/h2&gt;&lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerli</summary>
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://boneink.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>java-switch语句</title>
     <link href="https://boneink.github.io/2022/05/15/java-switch%E8%AF%AD%E5%8F%A5/"/>
     <id>https://boneink.github.io/2022/05/15/java-switch%E8%AF%AD%E5%8F%A5/</id>
@@ -498,31 +520,6 @@
     <category term="云计算" scheme="https://boneink.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
     
     <category term="实验作业" scheme="https://boneink.github.io/tags/%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>云计算作业4</title>
-    <link href="https://boneink.github.io/2019/05/13/%E4%BA%91%E8%AE%A1%E7%AE%97%20%E4%BD%9C%E4%B8%9A4/"/>
-    <id>https://boneink.github.io/2019/05/13/%E4%BA%91%E8%AE%A1%E7%AE%97%20%E4%BD%9C%E4%B8%9A4/</id>
-    <published>2019-05-13T04:00:00.000Z</published>
-    <updated>2019-05-13T04:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Homework-4"><a href="#Homework-4" class="headerlink" title="Homework 4"></a>Homework 4</h2><hr><h2 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h2><h2 id="Messaging-in-Docker-images"><a href="#Messaging-in-Docker-images" class="headerlink" title="Messaging in Docker images"></a>Messaging in Docker images</h2><ol><li><p>Donwload the project code from git. hps:&#x2F;&#x2F;github.com&#x2F;UsamaAshraf&#x2F;microservices-using-rabbitmq</p></li><li><p>Unzip to get the ﬁle.</p></li><li><p>Launch The Microservices.</p>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose up</span></span><br></pre></td></tr></table></figure></li><li><p>Check for 3 services.</p>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker ps</span></span><br></pre></td></tr></table></figure></li><li><p>Open two new terminals, SSH into the Python and Go containers using the respecve container names and start the servers:</p>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it microservicesusingrabbitmq_python-service_1 bash FLASK_APP=main.py python -m flask run — port 3000 — host 0.0.0.0</span><br><span class="line"></span><br><span class="line">docker exec -it microservicesusingrabbitmq_go-service_1 bash go run main.go</span><br></pre></td></tr></table></figure></li><li><p>Open a third terminal to send the POST request:</p><blockquote><p>Lost code</p></blockquote></li><li><p>MQ performance Test。<br>Run a script.</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#/bin/sh</span><br><span class="line">sum=1000000000</span><br><span class="line">i=0 while [ &quot;$i&quot; -le &quot;$sum&quot; ]</span><br><span class="line">do</span><br><span class="line">curl -d &quot;full_name=$i&quot; -X POST http://localhost:3000/users/1 i=$(($i+1))</span><br><span class="line">done</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Homework-4&quot;&gt;&lt;a href=&quot;#Homework-4&quot; class=&quot;headerlink&quot; title=&quot;Homework 4&quot;&gt;&lt;/a&gt;Homework 4&lt;/h2&gt;&lt;hr&gt;
-&lt;h2 id=&quot;Assignment&quot;&gt;&lt;a href=&quot;#Assign</summary>
-      
-    
-    
-    
-    
-    <category term="作业" scheme="https://boneink.github.io/tags/%E4%BD%9C%E4%B8%9A/"/>
-    
-    <category term="云计算" scheme="https://boneink.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
     
   </entry>
   
