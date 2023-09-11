@@ -6,7 +6,7 @@
   <link href="https://boneink.github.io/atom.xml" rel="self"/>
   
   <link href="https://boneink.github.io/"/>
-  <updated>2022-08-23T04:00:00.000Z</updated>
+  <updated>2023-09-05T12:10:43.057Z</updated>
   <id>https://boneink.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://boneink.github.io/2023/09/05/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
+    <id>https://boneink.github.io/2023/09/05/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</id>
+    <published>2023-09-05T12:10:43.057Z</published>
+    <updated>2023-09-05T12:10:43.057Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>RPC, 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议，该协议允许运行于一台计算机的程序程调用另一台计算机的上的程序。通俗讲，RPC 通过把网络通讯抽象为远程的过程调用，<strong>调用远程的过程就像调用本地的子程序一样方便，从而屏蔽了通讯复杂性，使开发人员可以无需关注网络编程的细节</strong>，将更多的时间和精力放在业务逻辑本身的实现上，提高工作效率。<br>RPC 本质上是一种 Inter-process communication（IPC）——进程间通信的形式。常见的进程间通信方式如管道、共享内存是同一台物理机上的两个进程间的通信，而 RPC 就是两个在不同物理机上的进程之间的通信。概括的说，RPC 就是在一台机器上调用另一台机器上的方法，这种调用在远程机器上对代码的执行就像在本机上对代码的执行一样，只是迁移了一个执行环境而已。</p><h2 id="RPC-的通信流程"><a href="#RPC-的通信流程" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h2><h3 id="RPC-的通信模式"><a href="#RPC-的通信模式" class="headerlink" title="RPC 的通信模式"></a>RPC 的通信模式</h3><p>RPC 采用客户端 &#x2F; 服务端的模式，通过 request-response 消息模式实现。</p><h3 id="RPC-的通信流程-1"><a href="#RPC-的通信流程-1" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h3><img src='https://boneink.github.io/img/rpc.png' />1. 首先客户端需要告诉服务器，需要调用的函数，这里函数和进程 ID 存在一个映射，客户端远程调用时，需要查一下函数，找到对应的 ID，然后2. 客户端需要把本地参数传给远程函数，本地调用的过程中，直接压栈即可，但是在远程调用过程中不再同一个内存里，无法直接传递函数的参数，因此需要客户端把参数转换成字节流，传给服务端，然后服务端将字节流转换成自身能读取的格式，是一个序列化和反序列化的过程。3. 数据准备好了之后，网络传输层需要把调用的 ID 和序列化后的参数传给服务端，然后把计算好的结果序列化传给客户端，因此 TCP 层即可完成上述过程，gRPC 中采用的是 HTTP2 协议。]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;p&gt;RPC, 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议，该协议允许运行于一台计算机</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>WhiteRabbitTracke项目运行和问题</title>
@@ -445,29 +465,6 @@
   </entry>
   
   <entry>
-    <title>从“马宝国”看泛娱乐化</title>
-    <link href="https://boneink.github.io/2020/12/01/%E6%97%A5%E8%AE%B0-%E4%BB%8E%E2%80%9C%E9%A9%AC%E5%AE%9D%E5%9B%BD%E2%80%9D%E7%9C%8B%E6%B3%9B%E5%A8%B1%E4%B9%90%E5%8C%96/"/>
-    <id>https://boneink.github.io/2020/12/01/%E6%97%A5%E8%AE%B0-%E4%BB%8E%E2%80%9C%E9%A9%AC%E5%AE%9D%E5%9B%BD%E2%80%9D%E7%9C%8B%E6%B3%9B%E5%A8%B1%E4%B9%90%E5%8C%96/</id>
-    <published>2020-11-30T21:50:00.000Z</published>
-    <updated>2020-11-30T21:50:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="深夜小记"><a href="#深夜小记" class="headerlink" title="深夜小记"></a>深夜小记</h2><hr><p>“马宝国”其人其事，在网上流传已成烂梗，原以为只是老骗子一个，除去几句翻来覆去的“名人语录”，便也无他罢了。前几日竟见有媒体专访，乃至导演邀约，评论区亦有“路人”为之开脱，可说是魔幻一般的现实。<br>于是乎便有了“《人民日报》揭批马保国闹剧”一回，看来上头是要警惕泛娱乐化这一趋势。而除去《人民日报》“二流报纸”本质，单就马保国其人，本质上骗子一枚，烂梗一个，并无可取之处。<br>大家玩一玩梗，笑一笑他，这叫适度。<br>可有人因此将玩梗的心情移情到其人本身，说些“他还是个七八十的老爷爷，能这样很不容易了”，“他至少给我带来了欢乐”，“他也就只是个骗子”之类的话，这叫自作多情。<br>他现在七八十，可以想象行骗了多久，又有多少人受骗。为老而不尊，实为老贼。<br>而给我们带来欢乐的，是那些辛苦的视频制作者，而不是他。以此为其脱罪，“窃他人之果”，实为匪盗。<br>如果没有这些恶搞视频，那我们又会如何看待此人，这是一个有趣的事情。我们现在因为一个无意间的恶搞，想要轻易原谅一个老贼，甚至还允许他通过流量骗到更多的钱。那未来一大盗，一土匪，一恶魔，亦可通过一段视频，轻易获得谅解。见微而知著，实为大患。<br>强大的国家不怕几粒“老鼠屎”，怕的是大家都开始喜欢尝“老鼠屎”。<br>文化娱乐，既要松绑，又要警惕。<br> <img src="http://boneink.life/img/diary/natu.png"  align=center /></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;深夜小记&quot;&gt;&lt;a href=&quot;#深夜小记&quot; class=&quot;headerlink&quot; title=&quot;深夜小记&quot;&gt;&lt;/a&gt;深夜小记&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;“马宝国”其人其事，在网上流传已成烂梗，原以为只是老骗子一个，除去几句翻来覆去的“名人语录”，便也无他罢了。前几日</summary>
-      
-    
-    
-    
-    
-    <category term="日记" scheme="https://boneink.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>毕业设计《三国演义》在线统计与分析系统</title>
     <link href="https://boneink.github.io/2020/05/23/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E3%80%8A%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89%E3%80%8B%E5%9C%A8%E7%BA%BF%E7%BB%9F%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/"/>
     <id>https://boneink.github.io/2020/05/23/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1-%E3%80%8A%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89%E3%80%8B%E5%9C%A8%E7%BA%BF%E7%BB%9F%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/</id>
@@ -489,8 +486,6 @@
     
     <category term="jQuery" scheme="https://boneink.github.io/tags/jQuery/"/>
     
-    <category term="Spring MVC" scheme="https://boneink.github.io/tags/Spring-MVC/"/>
-    
     <category term="Mybatis" scheme="https://boneink.github.io/tags/Mybatis/"/>
     
     <category term="Jieba" scheme="https://boneink.github.io/tags/Jieba/"/>
@@ -502,6 +497,10 @@
     <category term="Bootstrap" scheme="https://boneink.github.io/tags/Bootstrap/"/>
     
     <category term="tomcat" scheme="https://boneink.github.io/tags/tomcat/"/>
+    
+    <category term="Spring" scheme="https://boneink.github.io/tags/Spring/"/>
+    
+    <category term="MVC" scheme="https://boneink.github.io/tags/MVC/"/>
     
   </entry>
   
