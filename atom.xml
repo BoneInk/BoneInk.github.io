@@ -6,7 +6,7 @@
   <link href="https://boneink.github.io/atom.xml" rel="self"/>
   
   <link href="https://boneink.github.io/"/>
-  <updated>2023-09-05T12:10:43.057Z</updated>
+  <updated>2022-08-23T04:00:00.000Z</updated>
   <id>https://boneink.github.io/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://boneink.github.io/2023/09/05/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
-    <id>https://boneink.github.io/2023/09/05/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</id>
-    <published>2023-09-05T12:10:43.057Z</published>
-    <updated>2023-09-05T12:10:43.057Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>RPC, 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议，该协议允许运行于一台计算机的程序程调用另一台计算机的上的程序。通俗讲，RPC 通过把网络通讯抽象为远程的过程调用，<strong>调用远程的过程就像调用本地的子程序一样方便，从而屏蔽了通讯复杂性，使开发人员可以无需关注网络编程的细节</strong>，将更多的时间和精力放在业务逻辑本身的实现上，提高工作效率。<br>RPC 本质上是一种 Inter-process communication（IPC）——进程间通信的形式。常见的进程间通信方式如管道、共享内存是同一台物理机上的两个进程间的通信，而 RPC 就是两个在不同物理机上的进程之间的通信。概括的说，RPC 就是在一台机器上调用另一台机器上的方法，这种调用在远程机器上对代码的执行就像在本机上对代码的执行一样，只是迁移了一个执行环境而已。</p><h2 id="RPC-的通信流程"><a href="#RPC-的通信流程" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h2><h3 id="RPC-的通信模式"><a href="#RPC-的通信模式" class="headerlink" title="RPC 的通信模式"></a>RPC 的通信模式</h3><p>RPC 采用客户端 &#x2F; 服务端的模式，通过 request-response 消息模式实现。</p><h3 id="RPC-的通信流程-1"><a href="#RPC-的通信流程-1" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h3><img src='https://boneink.github.io/img/rpc.png' />1. 首先客户端需要告诉服务器，需要调用的函数，这里函数和进程 ID 存在一个映射，客户端远程调用时，需要查一下函数，找到对应的 ID，然后2. 客户端需要把本地参数传给远程函数，本地调用的过程中，直接压栈即可，但是在远程调用过程中不再同一个内存里，无法直接传递函数的参数，因此需要客户端把参数转换成字节流，传给服务端，然后服务端将字节流转换成自身能读取的格式，是一个序列化和反序列化的过程。3. 数据准备好了之后，网络传输层需要把调用的 ID 和序列化后的参数传给服务端，然后把计算好的结果序列化传给客户端，因此 TCP 层即可完成上述过程，gRPC 中采用的是 HTTP2 协议。]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;p&gt;RPC, 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议，该协议允许运行于一台计算机</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>WhiteRabbitTracke项目运行和问题</title>
@@ -263,6 +243,33 @@
 &lt;li&gt;&lt;p&gt;class文件常量池，编译阶段）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://boneink.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java-常量池与装拆箱机制</title>
+    <link href="https://boneink.github.io/2022/05/17/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
+    <id>https://boneink.github.io/2022/05/17/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</id>
+    <published>2022-05-17T04:00:00.000Z</published>
+    <updated>2022-05-17T04:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: rpc-基础入门<br>date: 2018-10-17 12:00:00<br>tags:</p><ul><li>java</li></ul><h2 id="cover-https-www-wallpaperup-com-uploads-wallpapers-2015-01-19-590738-03184d055da164780a30798d345d4cfd-jpg"><a href="#cover-https-www-wallpaperup-com-uploads-wallpapers-2015-01-19-590738-03184d055da164780a30798d345d4cfd-jpg" class="headerlink" title="cover: https://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg"></a>cover: <a href="https://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg">https://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg</a></h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>RPC, 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议，该协议允许运行于一台计算机的程序程调用另一台计算机的上的程序。通俗讲，RPC 通过把网络通讯抽象为远程的过程调用，<strong>调用远程的过程就像调用本地的子程序一样方便，从而屏蔽了通讯复杂性，使开发人员可以无需关注网络编程的细节</strong>，将更多的时间和精力放在业务逻辑本身的实现上，提高工作效率。<br>RPC 本质上是一种 Inter-process communication（IPC）——进程间通信的形式。常见的进程间通信方式如管道、共享内存是同一台物理机上的两个进程间的通信，而 RPC 就是两个在不同物理机上的进程之间的通信。概括的说，RPC 就是在一台机器上调用另一台机器上的方法，这种调用在远程机器上对代码的执行就像在本机上对代码的执行一样，只是迁移了一个执行环境而已。</p><h2 id="RPC-的通信流程"><a href="#RPC-的通信流程" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h2><h3 id="RPC-的通信模式"><a href="#RPC-的通信模式" class="headerlink" title="RPC 的通信模式"></a>RPC 的通信模式</h3><p>RPC 采用客户端 &#x2F; 服务端的模式，通过 request-response 消息模式实现。</p><h3 id="RPC-的通信流程-1"><a href="#RPC-的通信流程-1" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h3><img src='https://boneink.github.io/img/rpc.png' />1. 首先客户端需要告诉服务器，需要调用的函数，这里函数和进程 ID 存在一个映射，客户端远程调用时，需要查一下函数，找到对应的 ID，然后2. 客户端需要把本地参数传给远程函数，本地调用的过程中，直接压栈即可，但是在远程调用过程中不再同一个内存里，无法直接传递函数的参数，因此需要客户端把参数转换成字节流，传给服务端，然后服务端将字节流转换成自身能读取的格式，是一个序列化和反序列化的过程。3. 数据准备好了之后，网络传输层需要把调用的 ID 和序列化后的参数传给服务端，然后把计算好的结果序列化传给客户端，因此 TCP 层即可完成上述过程，gRPC 中采用的是 HTTP2 协议。]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;title: rpc-基础入门&lt;br&gt;date: 2018-10-17 12:00:00&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;cover-https-www-wallpaperup-com-uploads-w</summary>
       
     
     
