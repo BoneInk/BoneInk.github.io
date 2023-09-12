@@ -253,35 +253,6 @@
   </entry>
   
   <entry>
-    <title>java-常量池与装拆箱机制</title>
-    <link href="https://boneink.github.io/2022/05/17/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
-    <id>https://boneink.github.io/2022/05/17/rpc-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</id>
-    <published>2022-05-17T04:00:00.000Z</published>
-    <updated>2022-05-17T04:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>title: rpc-基础入门<br>date: 2018-10-17 12:00:00<br>tags:</p><ul><li>java</li><li>计算机网络</li><li>JavaWeb</li></ul><h2 id="cover-https-www-wallpaperup-com-uploads-wallpapers-2015-01-19-590738-03184d055da164780a30798d345d4cfd-jpg"><a href="#cover-https-www-wallpaperup-com-uploads-wallpapers-2015-01-19-590738-03184d055da164780a30798d345d4cfd-jpg" class="headerlink" title="cover: https://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg"></a>cover: <a href="https://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg">https://www.wallpaperup.com/uploads/wallpapers/2015/01/19/590738/03184d055da164780a30798d345d4cfd.jpg</a></h2><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>RPC, 远程过程调用（Remote Procedure Call，RPC）是一个计算机通信协议，该协议允许运行于一台计算机的程序程调用另一台计算机的上的程序。通俗讲，RPC 通过把网络通讯抽象为远程的过程调用，<strong>调用远程的过程就像调用本地的子程序一样方便，从而屏蔽了通讯复杂性，使开发人员可以无需关注网络编程的细节</strong>，将更多的时间和精力放在业务逻辑本身的实现上，提高工作效率。<br>RPC 本质上是一种 Inter-process communication（IPC）——进程间通信的形式。常见的进程间通信方式如管道、共享内存是同一台物理机上的两个进程间的通信，而 RPC 就是两个在不同物理机上的进程之间的通信。概括的说，RPC 就是在一台机器上调用另一台机器上的方法，这种调用在远程机器上对代码的执行就像在本机上对代码的执行一样，只是迁移了一个执行环境而已。</p><h2 id="RPC-的通信流程"><a href="#RPC-的通信流程" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h2><h3 id="RPC-的通信模式"><a href="#RPC-的通信模式" class="headerlink" title="RPC 的通信模式"></a>RPC 的通信模式</h3><p>RPC 采用客户端 &#x2F; 服务端的模式，通过 request-response 消息模式实现。</p><h3 id="RPC-的通信流程-1"><a href="#RPC-的通信流程-1" class="headerlink" title="RPC 的通信流程"></a>RPC 的通信流程</h3><img src='https://boneink.github.io/img/rpc.png' />1. 首先客户端需要告诉服务器，需要调用的函数，这里函数和进程 ID 存在一个映射，客户端远程调用时，需要查一下函数，找到对应的 ID，然后2. 客户端需要把本地参数传给远程函数，本地调用的过程中，直接压栈即可，但是在远程调用过程中不再同一个内存里，无法直接传递函数的参数，因此需要客户端把参数转换成字节流，传给服务端，然后服务端将字节流转换成自身能读取的格式，是一个序列化和反序列化的过程。3. 数据准备好了之后，网络传输层需要把调用的 ID 和序列化后的参数传给服务端，然后把计算好的结果序列化传给客户端，因此 TCP 层即可完成上述过程，gRPC 中采用的是 HTTP2 协议。#### 过程总结：1. Client 和 Server 两者的视角进行分析<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Client端 </span><br><span class="line">//    Student student = Call(ServerAddr, addAge, student)</span><br><span class="line">1. 将这个调用映射为Call ID。</span><br><span class="line">2. 将Call ID，student（params）序列化，以二进制形式打包</span><br><span class="line">3. 把2中得到的数据包发送给ServerAddr，这需要使用网络传输层</span><br><span class="line">4. 等待服务器返回结果</span><br><span class="line">5. 如果服务器调用成功，那么就将结果反序列化，并赋给student，年龄更新</span><br><span class="line"></span><br><span class="line">// Server端</span><br><span class="line">1. 在本地维护一个Call ID到函数指针的映射call_id_map，可以用Map&lt;String, Method&gt; callIdMap</span><br><span class="line">2. 等待客户端请求</span><br><span class="line">3. 得到一个请求后，将其数据包反序列化，得到Call ID</span><br><span class="line">4. 通过在callIdMap中查找，得到相应的函数指针</span><br><span class="line">5. 将student（params）反序列化后，在本地调用addAge()函数，得到结果</span><br><span class="line">6. 将student结果序列化后通过网络返回给Client</span><br></pre></td></tr></table></figure>2. 一次完成的 RPC 调用流程（同步调用）<p>​ 1）服务消费方（client）调用以本地调用方式调用服务；<br>​ 2）client stub 接收到调用后负责将方法、参数等组装成能够进行网络传输的消息体；<br>​ 3）client stub 找到服务地址，并将消息发送到服务端；<br>​ 4）server stub 收到消息后进行解码；<br>​ 5）server stub 根据解码结果调用本地的服务；<br>​ 6）本地服务执行并将结果返回给 server stub；<br>​ 7）server stub 将返回结果打包成消息并发送至消费方；<br>​ 8）client stub 接收到消息，并进行解码；<br>​ 9）服务消费方得到最终结果。</p><p><strong>RPC 框架的目标就是要 2~8 这些步骤都封装起来，让用户对这些细节透明。</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;hr&gt;
-&lt;p&gt;title: rpc-基础入门&lt;br&gt;date: 2018-10-17 12:00:00&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;java&lt;/li&gt;
-&lt;li&gt;计算机网络&lt;/li&gt;
-&lt;li&gt;JavaWeb&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;cover-htt</summary>
-      
-    
-    
-    
-    
-    <category term="java" scheme="https://boneink.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>java-java四种访问权限</title>
     <link href="https://boneink.github.io/2022/05/16/java-java%E5%9B%9B%E7%A7%8D%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/"/>
     <id>https://boneink.github.io/2022/05/16/java-java%E5%9B%9B%E7%A7%8D%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/</id>
@@ -510,6 +481,33 @@
     <category term="Spring" scheme="https://boneink.github.io/tags/Spring/"/>
     
     <category term="MVC" scheme="https://boneink.github.io/tags/MVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jquery ajax 笔记</title>
+    <link href="https://boneink.github.io/2020/05/11/Jquery%20Ajax%20%E7%AC%94%E8%AE%B0/"/>
+    <id>https://boneink.github.io/2020/05/11/Jquery%20Ajax%20%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-05-11T04:00:00.000Z</published>
+    <updated>2020-05-11T04:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="jQuery-Ajax-笔记"><a href="#jQuery-Ajax-笔记" class="headerlink" title="jQuery Ajax 笔记"></a>jQuery Ajax 笔记</h2><p>实现ajax，目前有两种方法：</p><ol><li>使用JavaScript扩展对象XMLHttpRequest实现Ajax</li><li>使用JjQuery实现ajax</li></ol><p>此处学习总结jQuery ajax方法。<br>常用格式：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">type</span>:<span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;sentence.jsp&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">        <span class="attr">sentence</span>:sentence</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">dataType</span>:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">    <span class="attr">async</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="attr">success</span>:<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>:<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&#x27;false&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>关键词语法：</p><table><thead><tr><th align="left">名称</th><th align="left">值&#x2F;描述</th></tr></thead><tbody><tr><td align="left">async</td><td align="left">布尔值，表示请求是否异步处理。默认是 true。</td></tr><tr><td align="left">beforeSend(<em>xhr</em>)</td><td align="left">发送请求前运行的函数。</td></tr><tr><td align="left">cache</td><td align="left">布尔值，表示浏览器是否缓存被请求页面。默认是 true。</td></tr><tr><td align="left">complete(<em>xhr,status</em>)</td><td align="left">请求完成时运行的函数（在请求成功或失败之后均调用，即在 success 和 error 函数之后）。</td></tr><tr><td align="left">contentType</td><td align="left">发送数据到服务器时所使用的内容类型。默认是：”application&#x2F;x-www-form-urlencoded”。</td></tr><tr><td align="left">context</td><td align="left">为所有 AJAX 相关的回调函数规定 “this” 值。</td></tr><tr><td align="left">data</td><td align="left">规定要发送到服务器的数据。</td></tr><tr><td align="left">dataFilter(<em>data</em>,<em>type</em>)</td><td align="left">用于处理 XMLHttpRequest 原始响应数据的函数。</td></tr><tr><td align="left">dataType</td><td align="left">预期的服务器响应的数据类型。</td></tr><tr><td align="left">error(<em>xhr,status,error</em>)</td><td align="left">如果请求失败要运行的函数。</td></tr><tr><td align="left">global</td><td align="left">布尔值，规定是否为请求触发全局 AJAX 事件处理程序。默认是 true。</td></tr><tr><td align="left">ifModified</td><td align="left">布尔值，规定是否仅在最后一次请求以来响应发生改变时才请求成功。默认是 false。</td></tr><tr><td align="left">jsonp</td><td align="left">在一个 jsonp 中重写回调函数的字符串。</td></tr><tr><td align="left">jsonpCallback</td><td align="left">在一个 jsonp 中规定回调函数的名称。</td></tr><tr><td align="left">password</td><td align="left">规定在 HTTP 访问认证请求中使用的密码。</td></tr><tr><td align="left">processData</td><td align="left">布尔值，规定通过请求发送的数据是否转换为查询字符串。默认是 true。</td></tr><tr><td align="left">scriptCharset</td><td align="left">规定请求的字符集。</td></tr><tr><td align="left">success(<em>result,status,xhr</em>)</td><td align="left">当请求成功时运行的函数。</td></tr><tr><td align="left">timeout</td><td align="left">设置本地的请求超时时间（以毫秒计）。</td></tr><tr><td align="left">traditional</td><td align="left">布尔值，规定是否使用参数序列化的传统样式。</td></tr><tr><td align="left">type</td><td align="left">规定请求的类型（GET 或 POST）。</td></tr><tr><td align="left">url</td><td align="left">规定发送请求的 URL。默认是当前页面。</td></tr><tr><td align="left">username</td><td align="left">规定在 HTTP 访问认证请求中使用的用户名。</td></tr><tr><td align="left">xhr</td><td align="left">用于创建 XMLHttpRequest 对象的函数。</td></tr></tbody></table><h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol><li>若url为jsp文件，通过java返回数据，则应用语句<code>request.setAttribute();</code>。</li><li>在js中可用<code>$&#123;&#125;</code>或嵌入java<code>&lt;%=%&gt;</code>取出指定名称的返回数据。 </li><li>若指定了返回数据的类型，则返回数据的类型需要与指定类型相同，否则会报错。</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;jQuery-Ajax-笔记&quot;&gt;&lt;a href=&quot;#jQuery-Ajax-笔记&quot; class=&quot;headerlink&quot; title=&quot;jQuery Ajax 笔记&quot;&gt;&lt;/a&gt;jQuery Ajax 笔记&lt;/h2&gt;&lt;p&gt;实现ajax，目前有两种方法：&lt;/p&gt;
+&lt;o</summary>
+      
+    
+    
+    
+    
+    <category term="JavaWeb" scheme="https://boneink.github.io/tags/JavaWeb/"/>
+    
+    <category term="jQuery" scheme="https://boneink.github.io/tags/jQuery/"/>
+    
+    <category term="Ajax" scheme="https://boneink.github.io/tags/Ajax/"/>
     
   </entry>
   
