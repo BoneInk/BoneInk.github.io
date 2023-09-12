@@ -466,6 +466,10 @@
     
     <category term="jQuery" scheme="https://boneink.github.io/tags/jQuery/"/>
     
+    <category term="Spring" scheme="https://boneink.github.io/tags/Spring/"/>
+    
+    <category term="MVC" scheme="https://boneink.github.io/tags/MVC/"/>
+    
     <category term="Mybatis" scheme="https://boneink.github.io/tags/Mybatis/"/>
     
     <category term="Jieba" scheme="https://boneink.github.io/tags/Jieba/"/>
@@ -477,10 +481,6 @@
     <category term="Bootstrap" scheme="https://boneink.github.io/tags/Bootstrap/"/>
     
     <category term="tomcat" scheme="https://boneink.github.io/tags/tomcat/"/>
-    
-    <category term="Spring" scheme="https://boneink.github.io/tags/Spring/"/>
-    
-    <category term="MVC" scheme="https://boneink.github.io/tags/MVC/"/>
     
   </entry>
   
