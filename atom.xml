@@ -424,6 +424,13 @@
     <published>2021-07-13T04:00:00.000Z</published>
     <updated>2021-07-13T04:00:00.000Z</updated>
     
+    <content type="html"><![CDATA[<embed id="pdfPlayer" src="https://boneink.github.io/img/pdf/8.XSS攻击渗透报告.pdf" type="application/pdf" width="100%" height="600" >]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;embed id=&quot;pdfPlayer&quot; src=&quot;https://boneink.github.io/img/pdf/8.XSS攻击渗透报告.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600&quot; &gt;</summary>
+      
     
     
     
@@ -441,6 +448,13 @@
     <published>2021-07-12T04:00:00.000Z</published>
     <updated>2021-07-12T04:00:00.000Z</updated>
     
+    <content type="html"><![CDATA[<embed id="pdfPlayer" src="https://boneink.github.io/img/pdf/7.SQL注入爆表.pdf" type="application/pdf" width="100%" height="600" >]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;embed id=&quot;pdfPlayer&quot; src=&quot;https://boneink.github.io/img/pdf/7.SQL注入爆表.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600&quot; &gt;</summary>
+      
     
     
     
@@ -458,6 +472,13 @@
     <published>2021-07-10T04:00:00.000Z</published>
     <updated>2021-07-10T04:00:00.000Z</updated>
     
+    <content type="html"><![CDATA[<embed id="pdfPlayer" src="https://boneink.github.io/img/pdf/6.文件上传攻击实战.pdf" type="application/pdf" width="100%" height="600" >]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;embed id=&quot;pdfPlayer&quot; src=&quot;https://boneink.github.io/img/pdf/6.文件上传攻击实战.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600&quot; &gt;</summary>
+      
     
     
     
