@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>常见网络安全漏洞-Web黑盒漏洞 | 临渊羡鱼</title><meta name="description" content="Web安全 web黑盒漏洞原理问题1.SQL注入  原理：在数据交互中，前端的数据传入到后台处理时，由于后端没有做严格的判断，导致其传入的“数据”拼接到SQL语句中后，被当作SQL语句的一部分执行。 种类：字符，数字，布尔，报错，延迟，联合，堆叠，宽字节，XFF等 修复：使用预编译，PDO，正则表达式过滤，开启魔术引号，加装WAF等 预编译原理：预编译将一次查询通过两次交互完成，第一次交互发送查询"><meta name="keywords" content="网络安全"><meta name="author" content="BoneInk"><meta name="copyright" content="BoneInk"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/R.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="常见网络安全漏洞-Web黑盒漏洞"><meta name="twitter:description" content="Web安全 web黑盒漏洞原理问题1.SQL注入  原理：在数据交互中，前端的数据传入到后台处理时，由于后端没有做严格的判断，导致其传入的“数据”拼接到SQL语句中后，被当作SQL语句的一部分执行。 种类：字符，数字，布尔，报错，延迟，联合，堆叠，宽字节，XFF等 修复：使用预编译，PDO，正则表达式过滤，开启魔术引号，加装WAF等 预编译原理：预编译将一次查询通过两次交互完成，第一次交互发送查询"><meta name="twitter:image" content="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg"><meta property="og:type" content="article"><meta property="og:title" content="常见网络安全漏洞-Web黑盒漏洞"><meta property="og:url" content="https://boneink.github.io/2021/05/23/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E-Web%E9%BB%91%E7%9B%92%E6%BC%8F%E6%B4%9E/"><meta property="og:site_name" content="临渊羡鱼"><meta property="og:description" content="Web安全 web黑盒漏洞原理问题1.SQL注入  原理：在数据交互中，前端的数据传入到后台处理时，由于后端没有做严格的判断，导致其传入的“数据”拼接到SQL语句中后，被当作SQL语句的一部分执行。 种类：字符，数字，布尔，报错，延迟，联合，堆叠，宽字节，XFF等 修复：使用预编译，PDO，正则表达式过滤，开启魔术引号，加装WAF等 预编译原理：预编译将一次查询通过两次交互完成，第一次交互发送查询"><meta property="og:image" content="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg"><meta property="article:published_time" content="2021-05-23T04:00:00.000Z"><meta property="article:modified_time" content="2021-05-23T04:00:00.000Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://boneink.github.io/2021/05/23/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E-Web%E9%BB%91%E7%9B%92%E6%BC%8F%E6%B4%9E/"><link rel="prev" title="Web安全-SQL注入" href="https://boneink.github.io/2021/06/15/Web%E5%AE%89%E5%85%A8-SQL%E6%B3%A8%E5%85%A5/"><link rel="next" title="一元多项式的乘法与加法运算" href="https://boneink.github.io/2021/02/15/%E4%B8%80%E5%85%83%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E4%B9%98%E6%B3%95%E4%B8%8E%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="临渊羡鱼" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="http://q1.qlogo.cn/g?b=qq&amp;nk=1214424001&amp;s=5" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">51</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">32</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#web%E9%BB%91%E7%9B%92%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">web黑盒漏洞原理问题</span></a></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><div class="post-bg" id="nav" style="background-image: url(https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">临渊羡鱼</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">常见网络安全漏洞-Web黑盒漏洞</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2021-05-23 12:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2021-05-23</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2021-05-23 12:00:00"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2021-05-23</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>Web安全</p>
+<h4 id="web黑盒漏洞原理问题"><a href="#web黑盒漏洞原理问题" class="headerlink" title="web黑盒漏洞原理问题"></a>web黑盒漏洞原理问题</h4><p><strong>1.SQL注入</strong></p>
+<ul>
+<li>原理：在数据交互中，前端的数据传入到后台处理时，由于后端没有做严格的判断，导致其传入的“数据”拼接到SQL语句中后，被当作SQL语句的一部分执行。</li>
+<li>种类：字符，数字，布尔，报错，延迟，联合，堆叠，宽字节，XFF等</li>
+<li>修复：使用预编译，PDO，正则表达式过滤，开启魔术引号，加装WAF等</li>
+<li>预编译原理：预编译将一次查询通过两次交互完成，第一次交互发送查询语句的模板，由后端的SQL引擎进行解析为AST或Opcode，第二次交互发送数据，代入AST或Opcode中执行，无论后续向模板传入什么参数，这些参数仅仅被当成字符串进行查询处理，因此杜绝了sql注入的产生。</li>
+</ul>
+<p><strong>2.跨站点脚本攻击（XSS）漏洞</strong></p>
+<ul>
+<li>原理：XSS是指恶意攻击者<strong>利用</strong>网站没有对用户提交数据进行转义处理或者过滤不足的<strong>缺点</strong>，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码，从而盗取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。</li>
+<li>种类：存储型，反射型，DOM型</li>
+<li>区别：存储型:常出现在信息修改添加等地方，导致恶意代码被存储在数据库中，每当被攻击者访问到后就会触发执行；反射型：常出现在url中，一般需要攻击者提前构造好恶意链接，欺骗用户点击，触发攻击代码；DOM型：攻击代码在url中，然后输出在了浏览器的DOM节点中。简单比较会发现，存储和反射都经过服务器，而DOM是纯前端。</li>
+<li>修复：对输入数据进行Html Encode 处理，白名单过滤，过滤JavaScript 事件的标签，开启http-only，装WAF等。</li>
+</ul>
+<p><strong>3.XXE漏洞</strong></p>
+<ul>
+<li>原理：XXE（XML外部实体注入）漏洞是一种利用XML解析器存在问题的安全漏洞，攻击者可以通过将恶意数据注入到XML文件中并发送给应用程序进行解析，从而执行恶意代码或者读取服务器上的敏感数据。主要原因是开发者没有对XML数据进行充分的校验和过滤。</li>
+<li>修复：<ul>
+<li>使用语言中推荐的禁用外部实体的方法<ul>
+<li>PHP：libxml_disable_entity_loader(true);</li>
+<li>Java:<ul>
+<li>DocumentBuilderFactory dbf &#x3D;DocumentBuilderFactory.newInstance();</li>
+<li>dbf.setExpandEntityReferences(false);</li>
+</ul>
+</li>
+<li>Python:<ul>
+<li>from lxml import etree</li>
+<li>xmlData &#x3D; etree.parse(xmlSource,etree.XMLParser(resolve_entities&#x3D;False))</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>手动黑名单过滤<ul>
+<li>过滤 XML 中的相关关键词，比如：&lt;!DOCTYPE、&lt;!ENTITY SYSTEM、PUBLIC 等。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.服务器端请求伪造（SSRF）漏洞</strong></p>
+<ul>
+<li><p>原理：攻击者能够通过伪装成终端用户或服务器自身，将恶意数据发送到目标网站内部网络，以达到读取敏感信息、窃取密码等危害。</p>
+</li>
+<li><p>种类：参数污染型SSRF、基于缺陷的SSRF、反射性SSRF。</p>
+</li>
+<li><p>修复：</p>
+<p>  ①输入验证：对于所有从客户端输入的数据，包括URL、表单和HTTP头字段，都要进行验证和过滤，删除不必要的字符和空格，并限制输入长度。 ②明确白名单：建立一个明确的白名单，只允许应用程序访问合法的资源。例如，定义一个URL库，在应用程序中仅允许访问这个库中的URL。 ③限制重定向：使用HTTP响应头来限制服务器的重定向行为，避免恶意重定向导致的SSRF风险。 ④检测远程地址：应用程序应该检测所有远程URLs和IP地址，以确保它们指向预期的目标并且可信。 ⑤安全配置：安全地配置服务器和其他基础设施，包括对端口、协议和代理服务器的限制，以减少攻击表面。</p>
+</li>
+</ul>
+<p><strong>5.跨站点请求伪造（CSRF）漏洞</strong></p>
+<ul>
+<li>原理：CSRF（跨站点请求伪造）漏洞是一种利用受害者已经登录了某个网站的身份认证信息这一事实进行攻击的手段。攻击者通过构造一个特制的请求，诱导受害者在该网站上访问并执行该请求，从而实现攻击目的。</li>
+<li>种类：CSRF漏洞可以分为get型、post型和jsonp型三种类型。其中，get型攻击主要利用图片、链接等标签的src属性来触发，post型则是提交表单或请求，jsonp型则是利用JSONP跨域特性进行攻击。</li>
+<li>修复：防止CSRF漏洞的方法主要有Token验证、Referer验证、使用验证码、同源检测和限制Cookie作用域等。具体来说，建议在表单和请求中加入随机生成的Token值，并在服务器端对Token进行验证；使用Referer验证来判断请求是否来源于本站；使用验证码来防止自动化攻击；限制Cookie的作用域，使其仅在必要的URL路径下生效；检查并确保应用程序不会直接响应用户提交的数据等。</li>
+</ul>
+<p><strong>6.跨域资源共享（CORS）漏洞</strong></p>
+<ul>
+<li>原理：CORS（跨域资源共享）漏洞是一种利用浏览器的同源策略存在缺陷的安全漏洞。攻击者可以通过恶意网站或者其他方式来访问受害者的敏感数据。攻击者利用CORS的特性绕过浏览器的同源策略，从而造成对目标网站的攻击。</li>
+<li>种类：CORS漏洞可以分为简单请求和非简单请求两种类型。简单请求是指使用HTTP方法为GET、HEAD、POST，并且只使用了以下Content-Type值之一的请求：text&#x2F;plain、multipart&#x2F;form-data 或 application&#x2F;x-www-form-urlencoded。非简单请求则是不符合以上条件的请求。</li>
+<li>区别：简单请求的跨域请求会先发一个预检请求OPTIONS，然后再发送正式请求，而非简单请求则不会发出预检请求OPTIONS，直接发起正式请求。这也是两者最显著的区别。</li>
+<li>修复：防止CORS漏洞的方法主要有限制Access-Control-Allow-Origin、使用Token验证和Referer白名单等。具体来说，建议在服务器端进行设置，禁止跨域访问；尽量避免使用Cookie作为认证凭据，而是使用Token验证；对Referer进行白名单限制，只允许指定来源的请求通过。此外，还可以使用CSRF Token来防御相关攻击，以及保证应用程序本身的安全性。</li>
+</ul>
+<p><strong>7.远程执行代码（RCE）漏洞</strong></p>
+<ul>
+<li>原理：远程执行代码（RCE）漏洞是指攻击者通过在应用程序中注入恶意代码来控制服务器上的操作系统。攻击者通常会利用该漏洞来获取敏感数据、篡改文件、植入后门等。</li>
+<li>修复：防止RCE漏洞的方法主要有代码审计、输入验证、参数化查询、使用安全的API、限制文件权限等。具体来说，建议开发人员对所有的输入变量进行严格的输入验证和类型检查；不信任用户输入，避免拼接字符串来生成代码或者SQL语句；使用安全的API，如paramiko库实现SSH连接而不是使用os.system函数；限制应用程序的文件权限，禁止其访问敏感目录和文件等。此外，还可以使用沙箱技术对应用程序进行隔离，以降低攻击者对系统的危害。</li>
+</ul>
+<p><strong>8.越权漏洞（IDOR）漏洞</strong></p>
+<ul>
+<li>原理：越权漏洞原理主要是由于应用程序没有正确限制用户的访问权限，导致攻击者能够直接访问受保护的资源或数据。</li>
+<li>种类：水平越权、垂直越权</li>
+<li>区别：<ul>
+<li>水平越权漏洞发生在同一等级的用户之间。攻击者通过利用系统缺陷或者漏洞，绕过访问控制，获取到其他同级别用户的权限。例如，一个普通用户能够通过修改 URL 参数，访问到另一个普通用户的个人信息，包括用户名、密码等敏感信息。</li>
+<li>垂直越权漏洞发生在不同等级的用户之间。攻击者通过利用系统缺陷或者漏洞，从低级别的用户处获取到高级别用户的权限。例如，一个普通用户能够通过修改数据表中的参数，获取到管理员账号的权限。</li>
+</ul>
+</li>
+<li>修复：对于水平越权漏洞，需要加强用户身份验证和访问控制，确保每个用户只能访问其具有权限的资源。而对于垂直越权漏洞，需要加强数据完整性的检查，限制低级别用户能够修改或操作的数据范围，并且限制低级别用户能够执行的操作。</li>
+</ul>
+<p><strong>9.未授权访问漏洞</strong></p>
+<ul>
+<li><p>原理：未授权访问漏洞是指攻击者在无需任何授权或认证的情况下，通过某种手段直接访问到了系统中的敏感信息或操作权限。这种漏洞通常是由于系统配置不当、权限设置不正确或者代码实现缺陷等原因导致。</p>
+</li>
+<li><p>种类：</p>
+<ul>
+<li>目录遍历漏洞：攻击者通过修改 URL 参数或其他方式，访问系统中的未授权目录或文件。</li>
+<li>功能级别访问控制漏洞：攻击者通过更改请求参数或者直接访问某些页面，绕过原本需要进行授权才能访问的功能模块。这种漏洞通常出现在 Web 应用程序中的管理员后台或其他需要特定权限的地方。</li>
+</ul>
+</li>
+<li><p>区别：目录遍历漏洞主要是通过对访问路径的修改来实现非法访问，而功能级别访问控制漏洞则是通过对访问条件的修改来实现非法访问。目录遍历漏洞属于文件系统的问题，而功能级别访问控制漏洞则属于应用逻辑的问题。</p>
+</li>
+<li><p>修复：</p>
+<ul>
+<li>实施严格的身份认证和访问控制机制，只有经过身份认证和授权的用户才能访问受保护的资源。</li>
+<li>对所有访问进行审计，包括成功和失败的访问，以便检测异常的行为并追踪行为来源。</li>
+<li>对所有调用接口的参数进行有效性验证，确保输入的参数符合预期类型、长度、范围等条件。</li>
+<li>在应用程序中限制用户能够访问的内容和功能，并禁止跨站点请求伪造 (CSRF) 攻击。</li>
+<li>定期检查和更新应用程序或系统的安全策略和配置，以确保其与最佳实践相符，并防止任何已知的漏洞或攻击向量。</li>
+</ul>
+</li>
+<li><p>典型：</p>
+<ul>
+<li>Redis 未授权访问漏洞</li>
+</ul>
+<p>  未开启认证，导致可以直接连接到数据库，然后在攻击机中生成ssh公钥和私钥，密码设置为空，然后将生成的公钥写入，再利用私钥连接。</p>
+<ul>
+<li>JBOSS 未授权访问漏洞</li>
+</ul>
+<p>  访问ip&#x2F;jmx-console 就可以浏览jboss 的部署管理的信息面板，不需要输入用户名和密码可以直接部署上传木马。简单来说就是对某些页面的验证不严格导致绕过了用户验证的环节，使其可以直接访问到某些登录后才能访问到的页面。</p>
+</li>
+</ul>
+<p><strong>10.逻辑漏洞</strong></p>
+<ul>
+<li>原理：逻辑漏洞是指攻击者利用系统内部的逻辑错误或疏漏，绕过了安全机制，达到访问敏感信息、执行未授权操作等目的。与其他漏洞不同，逻辑漏洞不依赖于技术性的缺陷，而是在业务逻辑上存在漏洞。</li>
+<li>种类：支付漏洞、越权访问、越权操作、权限提升、重放攻击等。</li>
+<li>区别：支付漏洞指攻击者通过修改订单金额、篡改请求等方式绕过支付系统的检查，实现非法获利；越权访问是指攻击者获取到其他用户的权限并进行了一些未授权的操作；越权操作则是攻击者将自己的权限提高至超级用户或管理员的权限，从而对系统进行恶意操作；权限提升漏洞是指攻击者针对系统中存在的权限设计问题或代码实现缺陷，成功地将低权限的账号的权限提升至高权限状态。而重放攻击则是攻击者通过重复发送已经获取到的合法请求，来达到冒充他人或者执行某个异常操作的目的。</li>
+<li>修复：由于逻辑漏洞涉及到系统业务逻辑的问题，因此要修复此类漏洞需要对业务逻辑进行全面的审查和测试，发现并纠正其中的逻辑错误。同时，对于一些常见的逻辑错误，也可以采取一些相应的对策，比如：对于支付漏洞，需要加强参数校验，使用严谨的算法保护数据的完整性；对于越权访问和操作漏洞，则需要增强访问控制策略，对重要操作进行多重身份验证等；对于权限提升漏洞，需要加强权限管理，遵守最小特权原则；对于重放攻击则可以使用防止重放攻击的技术手段来防范。</li>
+</ul>
+<p><strong>11.弱口令漏洞</strong></p>
+<ul>
+<li>原理：弱口令漏洞是指攻击者通过猜测或暴力破解的方式获取到系统中账号密码等敏感信息，从而登陆系统进行非法操作或窃取数据等行为。这种漏洞通常是由于用户在设置密码时过于简单、使用默认密码等不安全行为导致。</li>
+<li>修复：针对弱口令漏洞，可以采取以下措施：强制要求用户设置密码强度，比如长度、复杂度和特殊符号等；禁止使用默认密码和弱口令，如禁止使用生日、电话号码、连续数字等；加强密码的存储和传输安全，如采用哈希算法、加盐机制等方式保护用户密码；启用多重身份验证机制，增加破解难度；定期检查和更新密码等。同时，企业也可以借助第三方漏洞扫描工具，及时发现系统中存在的弱口令漏洞，并及时加以修复。</li>
+</ul>
+<p><strong>12.Oauth认证缺陷漏洞</strong></p>
+<ul>
+<li>原理：OAuth认证缺陷漏洞是指攻击者通过对OAuth认证流程中的某些环节进行攻击，从而获取到用户授权信息、窃取用户隐私等行为。常见的OAuth认证缺陷主要包括CSRF攻击、重定向攻击、Token泄露等。</li>
+<li>种类：CSRF攻击、重定向攻击、Token泄露等。</li>
+<li>区别：CSRF攻击是利用被攻击用户身份发起攻击，类似于冒充用户发起恶意请求；重定向攻击则是攻击者构造了一个URL链接，欺骗用户访问该链接进而获取到授权码或令牌；Token泄露则是攻击者通过各种手段窃取到访问令牌，进而以该令牌的权限进行非法操作。</li>
+<li>修复：针对OAuth认证缺陷漏洞，可以采取以下措施：加强认证流程中的安全策略，比如增加验证码验证、多重身份验证等方式来提高身份认证的安全性；使用HTTPS协议加密传输认证信息，防止信息被窃取或篡改；采用高强度加密算法对令牌进行加密处理，保证令牌的安全性；合理设计授权范围，避免过度授权，限制授权时间和权限的范围；对于可能受到攻击的接口实现，需要增加防护机制，禁止恶意访问等。同时，开发人员还需关注OAuth认证工具本身的安全性问题，及时更新OAuth工具版本，防范已知的漏洞风险。</li>
+</ul>
+<p><strong>13.重定向漏洞</strong></p>
+<ul>
+<li>原理：重定向漏洞是指攻击者利用系统中的某些URL跳转功能，欺骗用户点击恶意链接，将其跳转到攻击者构造的恶意网站上，从而进行钓鱼、窃取用户信息等行为。通常情况下，攻击者会通过修改URL参数或者构造伪造的URL来实现目的。</li>
+<li>修复：针对重定向漏洞，可以采取以下措施：限制跳转URL的范围，只允许跳转到特定的站点，避免被攻击者利用；增加双因素验证等安全机制，防止攻击者轻易欺骗用户；对于可能被篡改的URL参数进行校验，避免被篡改；使用合适的编程语言和框架，<a target="_blank" rel="noopener" href="http://如.net/">如.NET</a> MVC、Spring MVC等，自带了对重定向安全的检查，直接调用即可；对于涉及到跳转的功能，尽量使用POST请求，避免GET请求中暴露URL参数的风险；同时，企业还可以采用WAF等安全设备，对可能存在的重定向漏洞进行监测和拦截。</li>
+</ul>
+<p><strong>14.jsonp漏洞</strong></p>
+<ul>
+<li>原理：JSONP漏洞是指攻击者在Web应用程序中利用JSONP(JSON with Padding)回调函数的机制，通过操纵JSONP请求，在受害者浏览器中执行恶意JavaScript代码，从而进行XSS攻击、窃取用户信息等行为。攻击者通常会伪造一个带有攻击代码的JSONP响应，并将其发送给目标站点。</li>
+<li>种类：反射型JSONP漏洞、存储型JSONP漏洞等。</li>
+<li>区别：反射型JSONP漏洞是指攻击者构造一次含有恶意回调函数的URL，欺骗用户点击该URL，使得攻击者收到回调函数数据并执行恶意操作；存储型JSONP漏洞则是攻击者将含有恶意回调函数的代码存入数据库中，当用户使用服务时恶意代码被执行。</li>
+<li>修复：针对JSONP漏洞，可以采取以下措施：加强输入参数校验，避免恶意代码被注入；限制JSONP请求的来源，即只接受来自可信任源的请求；使用CSP(Content Security Policy)技术，限制网页中可信任的资源来源；定期更新服务端程序，及时修补已知漏洞或问题。此外，企业也可以借助第三方漏洞扫描工具，对系统中存在的JSONP漏洞进行检测和修复。同时，开发人员还应当注重安全编码规范，合理设计回调函数和请求方式，并加强团队内部的安全意识和管理。</li>
+</ul>
+<p><strong>15.文件操作漏洞</strong></p>
+<ul>
+<li>原理：文件操作漏洞是指攻击者通过恶意构造的文件操作语句，绕过系统的安全限制，对系统中的文件进行非法读写、删除和修改等行为，从而导致系统脆弱性和安全风险。常见的文件操作漏洞包括目录遍历漏洞、文件上传漏洞、文件包含漏洞等。</li>
+<li>种类：目录遍历漏洞、文件上传漏洞、文件包含漏洞等。</li>
+<li>区别：目录遍历漏洞是指攻击者通过构造恶意路径名，突破文件访问的限制，直接读取或执行系统中其他目录下的文件；文件上传漏洞则是攻击者在Web应用程序中上传恶意文件，从而实现远程控制、窃取目标数据等目的；文件包含漏洞是指攻击者通过操纵PHP的include()函数，将恶意代码注入到被引入的文件中，进而执行恶意操作。</li>
+<li>修复：防范文件操作漏洞需要加强对文件操作的权限和安全性管理，包括以下措施：对于所有用户上传的文件，必须进行严格的类型和大小验证，并且不允许上传可执行文件等危险文件；对于系统中的重要文件，需要对其访问权限进行设置，只开放必要的权限，并及时备份数据；对于可能存在遍历漏洞的文件路径，需要提前做好访问限制，尽可能采用白名单机制来控制文件访问；对于动态页面中包含的文件，需要使用绝对路径而不是相对路径，同时禁止使用用户输入数据作为动态页面中包含的文件路径等。此外，企业还可以借助WAF等安全设备，对系统中可能存在的文件操作漏洞进行监测和拦截。</li>
+</ul>
+<p><strong>16.条件竞争漏洞</strong></p>
+<ul>
+<li>原理：条件竞争漏洞是指在多线程环境下，当两个或多个线程同时访问同一资源时，由于代码执行的先后顺序不确定，导致程序出现非预期的行为和结果。通常情况下，攻击者会利用这种竞争条件来实现未授权访问、远程命令执行等恶意操作。</li>
+<li>种类：文件竞争漏洞、时间竞争漏洞等。</li>
+<li>区别：文件竞争漏洞主要发生在多个进程同时读写同一个文件时，从而出现数据丢失、覆盖等问题；时间竞争漏洞则是攻击者利用程序中的定时器等机制，快速执行一些敏感操作，突破系统的安全限制。</li>
+<li>修复：针对条件竞争漏洞，可以采取以下措施：对于共享变量或者资源，需要采用锁等机制保证同步访问；注意避免出现死锁等问题；对于需要调用系统函数或者外部API的操作，需要先判断其返回值，并做好适当的错误处理；尽可能减少共享内存区域，在多线程之间使用消息队列等机制进行信息交换；对于可能存在时间竞争漏洞的程序代码，需要加入合适的延时调用和异常处理，避免程序出错等情况。此外，企业还应该进行安全编码规范和安全测试，及时发现并修补程序中存在的条件竞争漏洞。</li>
+</ul>
+<p><strong>17.并发漏洞</strong></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">BoneInk</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://boneink.github.io/2021/05/23/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E-Web%E9%BB%91%E7%9B%92%E6%BC%8F%E6%B4%9E/">https://boneink.github.io/2021/05/23/%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E-Web%E9%BB%91%E7%9B%92%E6%BC%8F%E6%B4%9E/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://boneink.github.io" target="_blank">临渊羡鱼</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></div><div class="post_share"><div class="social-share" data-image="https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455922/1dee4df1af48f1fa9e6bd50618b4fbc9-1000.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2021/06/15/Web%E5%AE%89%E5%85%A8-SQL%E6%B3%A8%E5%85%A5/"><img class="prev_cover" src="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Web安全-SQL注入</div></div></a></div><div class="next-post pull_right"><a href="/2021/02/15/%E4%B8%80%E5%85%83%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E4%B9%98%E6%B3%95%E4%B8%8E%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97/"><img class="next_cover" src="http://boneink.xyz/img/outlook/suanfa.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">一元多项式的乘法与加法运算</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2022/03/01/挖矿木马总结/" title="挖矿木马总结"><img class="relatedPosts_cover" src="https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455922/1dee4df1af48f1fa9e6bd50618b4fbc9-1000.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2022-03-01</div><div class="relatedPosts_title">挖矿木马总结</div></div></a></div><div class="relatedPosts_item"><a href="/2022/06/27/挖矿样本特征总结/" title="挖矿样本特征总结"><img class="relatedPosts_cover" src="https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455922/1dee4df1af48f1fa9e6bd50618b4fbc9-1000.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2022-06-27</div><div class="relatedPosts_title">挖矿样本特征总结</div></div></a></div><div class="relatedPosts_item"><a href="/2021/06/27/Web安全-DOM型XSS攻击实战/" title="Web安全-命令注入攻击实战"><img class="relatedPosts_cover" src="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2021-06-27</div><div class="relatedPosts_title">Web安全-命令注入攻击实战</div></div></a></div><div class="relatedPosts_item"><a href="/2021/06/15/Web安全-SQL注入/" title="Web安全-SQL注入"><img class="relatedPosts_cover" src="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2021-06-15</div><div class="relatedPosts_title">Web安全-SQL注入</div></div></a></div><div class="relatedPosts_item"><a href="/2021/07/12/Web安全-SQL注入爆表/" title="Web安全-SQL注入爆表"><img class="relatedPosts_cover" src="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2021-07-12</div><div class="relatedPosts_title">Web安全-SQL注入爆表</div></div></a></div><div class="relatedPosts_item"><a href="/2021/06/20/Web安全-Web爆破攻击实战/" title="Web安全-Web爆破攻击实战"><img class="relatedPosts_cover" src="https://https://www.wallpaperup.com/uploads/wallpapers/2014/09/25/455966/2587c9e290e4776a126065c9eeb18090.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2021-06-20</div><div class="relatedPosts_title">Web安全-Web爆破攻击实战</div></div></a></div></div><div class="clear_both"></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By BoneInk</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div><div class="footer_custom_text">OK, stop! It's over.</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script></body></html>
