@@ -6,7 +6,7 @@
   <link href="https://boneink.github.io/atom.xml" rel="self"/>
   
   <link href="https://boneink.github.io/"/>
-  <updated>2024-03-07T07:12:30.158Z</updated>
+  <updated>2022-08-23T04:00:00.000Z</updated>
   <id>https://boneink.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://boneink.github.io/2024/03/07/Pasted%20image%2020231002105043.png/"/>
-    <id>https://boneink.github.io/2024/03/07/Pasted%20image%2020231002105043.png/</id>
-    <published>2024-03-07T07:12:30.158Z</published>
-    <updated>2024-03-07T07:12:30.158Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://boneink.github.io/2024/03/06/Pasted%20image%2020231002104839.png/"/>
-    <id>https://boneink.github.io/2024/03/06/Pasted%20image%2020231002104839.png/</id>
-    <published>2024-03-06T08:26:22.952Z</published>
-    <updated>2024-03-06T08:26:22.952Z</updated>
-    
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>WhiteRabbitTracke项目运行和问题</title>
@@ -474,6 +448,54 @@
       
     <summary type="html">&lt;embed id=&quot;pdfPlayer&quot; src=&quot;https://boneink.github.io/img/pdf/4.DOM型XSS攻击实战.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600&quot; &gt;
 </summary>
+      
+    
+    
+    
+    
+    <category term="网络安全" scheme="https://boneink.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Web安全" scheme="https://boneink.github.io/tags/Web%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web安全-命令注入攻击实战</title>
+    <link href="https://boneink.github.io/2021/06/22/Web%E5%AE%89%E5%85%A8-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB%E5%AE%9E%E6%88%98/"/>
+    <id>https://boneink.github.io/2021/06/22/Web%E5%AE%89%E5%85%A8-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB%E5%AE%9E%E6%88%98/</id>
+    <published>2021-06-22T04:00:00.000Z</published>
+    <updated>2021-06-22T04:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<embed id="pdfPlayer" src="https://boneink.github.io/img/pdf/3.命令注入攻击实战.pdf" type="application/pdf" width="100%" height="600" >]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;embed id=&quot;pdfPlayer&quot; src=&quot;https://boneink.github.io/img/pdf/3.命令注入攻击实战.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600&quot; &gt;</summary>
+      
+    
+    
+    
+    
+    <category term="网络安全" scheme="https://boneink.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="Web安全" scheme="https://boneink.github.io/tags/Web%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web安全-Web爆破攻击实战</title>
+    <link href="https://boneink.github.io/2021/06/20/Web%E5%AE%89%E5%85%A8-Web%E7%88%86%E7%A0%B4%E6%94%BB%E5%87%BB%E5%AE%9E%E6%88%98/"/>
+    <id>https://boneink.github.io/2021/06/20/Web%E5%AE%89%E5%85%A8-Web%E7%88%86%E7%A0%B4%E6%94%BB%E5%87%BB%E5%AE%9E%E6%88%98/</id>
+    <published>2021-06-20T04:00:00.000Z</published>
+    <updated>2021-06-20T04:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<embed id="pdfPlayer" src="https://boneink.github.io/img/pdf/2.Web爆破攻击实战.pdf" type="application/pdf" width="100%" height="600" >]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;embed id=&quot;pdfPlayer&quot; src=&quot;https://boneink.github.io/img/pdf/2.Web爆破攻击实战.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600&quot; &gt;</summary>
       
     
     
